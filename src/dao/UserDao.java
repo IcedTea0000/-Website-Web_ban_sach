@@ -17,6 +17,8 @@ public interface UserDao {
 	public User getByUsername(String username);
 
 	public User getByUP(String username, String password);
+	
+	public boolean checkUserNameExisted(String username);
 
 	public List<User> searchByName(String name);
 

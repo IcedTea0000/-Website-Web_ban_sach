@@ -36,7 +36,7 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 	@Override
 	public void update(User newUser) {
 		// update user's information on SQL db where id=newUser.id
-		String sql = "update web_ban_sach.user set name=?, address=?, username=?, password=?, info=?" + "where id=?";
+		String sql = "update web_ban_sach.user set name=?, address=?, username=?, password=?, info=? " + "where id=?";
 		Connection conn = super.getConn();
 
 		try {
@@ -57,7 +57,7 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 	@Override
 	public void delete(int userId) {
 		// delete user with id matches userId on SQL db
-		String sql = "delete from web_ban_sach.user" + "where id=?";
+		String sql = "delete from web_ban_sach.user " + "where id=?";
 		Connection conn = super.getConn();
 
 		try {
@@ -72,7 +72,7 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 	@Override
 	public User getById(int userId) {
 		// get cetegory object from SQL db where id matches userId
-		String sql = "select * from web_ban_sach.user" + "where id=?";
+		String sql = "select * from web_ban_sach.user " + "where id=?";
 		Connection conn = super.getConn();
 
 		try {
@@ -101,7 +101,7 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 	@Override
 	public User getByUsername(String username) {
 		// search SQL db and return an user object with username matches argument
-		String sql="select * from web_ban_sach.user"+"where username=?";
+		String sql="select * from web_ban_sach.user "+"where username=?";
 		Connection conn=super.getConn();
 		
 		try {
@@ -194,6 +194,14 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 			e.printStackTrace();
 		}
 		return userList;
+	}
+
+	@Override
+	public boolean checkUserNameExisted(String username) {
+		//check in SQL db if there is username existed
+		User checkUser=getByUsername(username);
+		if (checkUser!=null) return true;
+		else return false;
 	}
 
 }

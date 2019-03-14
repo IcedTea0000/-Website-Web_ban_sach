@@ -50,4 +50,9 @@ public class UserServiceImpl implements UserDao {
 		return userDaoImpl.searchByUsername(username);
 	}
 
+	@Override
+	public boolean checkUserNameExisted(String username) {
+		return userDaoImpl.checkUserNameExisted(username);
+	}
+
 }
