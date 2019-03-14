@@ -11,7 +11,7 @@
 		<div>
 			<h1>Search User</h1>
 		</div>
-		<form type="post" action="search-user">
+		<form method="post" action="search-user">
 			<div>
 				Search by <br /> name <input type="radio" name="search-type"
 					value="by-name" check="checked">

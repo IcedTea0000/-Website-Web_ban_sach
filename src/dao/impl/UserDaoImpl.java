@@ -101,16 +101,16 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 	@Override
 	public User getByUsername(String username) {
 		// search SQL db and return an user object with username matches argument
-		String sql="select * from web_ban_sach.user "+"where username=?";
-		Connection conn=super.getConn();
-		
+		String sql = "select * from web_ban_sach.user " + "where username=?";
+		Connection conn = super.getConn();
+
 		try {
-			PreparedStatement statement=conn.prepareStatement(sql);
+			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, username);
-			
-			ResultSet resultSet=statement.executeQuery();
+
+			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
-				User user=new User();
+				User user = new User();
 				user.setId(resultSet.getInt("id"));
 				user.setName(resultSet.getString("name"));
 				user.setAddress(resultSet.getString("address"));
@@ -120,7 +120,7 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 				user.setInfo(resultSet.getString("info"));
 				return user;
 			}
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -132,24 +132,25 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 	public User getByUP(String username, String password) {
 		// search SQL db and return an user object with username and password match
 		// arguments
-		User user=getByUsername(username);
-		if ((user!=null) && (user.getPassword().equals(password))) return user;
+		User user = getByUsername(username);
+		if ((user != null) && (user.getPassword().equals(password)))
+			return user;
 		return null;
 	}
 
 	@Override
 	public List<User> searchByName(String name) {
 		// search SQL db and return a list of users with names containing name
-		List<User>userList=new ArrayList<User>();
-		String sql="select * from web_ban_sach.user where name like ?";
-		Connection conn=super.getConn();
+		List<User> userList = new ArrayList<User>();
+		String sql = "select * from web_ban_sach.user where name like ?";
+		Connection conn = super.getConn();
 		try {
-			PreparedStatement statement=conn.prepareStatement(sql);
-			statement.setString(1, "%"+name+"%");
-			
-			ResultSet resultSet=statement.executeQuery();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, "%" + name + "%");
+
+			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
-				User user=new User();
+				User user = new User();
 				user.setId(resultSet.getInt("id"));
 				user.setName(resultSet.getString("name"));
 				user.setAddress(resultSet.getString("address"));
@@ -169,28 +170,27 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 	@Override
 	public List<User> searchByUsername(String username) {
 		// search SQL db and return a list of users with usernames containing username
-		List<User> userList=new ArrayList<User>();
-		String sql="select * from web_ban_sach.user where username like ?";
-		Connection conn=super.getConn();
-		
+		List<User> userList = new ArrayList<User>();
+		String sql = "select * from web_ban_sach.user where username like ?";
+		Connection conn = super.getConn();
+
 		try {
-		PreparedStatement statement=conn.prepareStatement(sql);
-		statement.setString(1, "%"+username+"%");
-		
-		ResultSet resultSet=statement.executeQuery();
-		while (resultSet.next()) {
-			User user=new User();
-			user.setId(resultSet.getInt("id"));
-			user.setName(resultSet.getString("name"));
-			user.setAddress(resultSet.getString("address"));
-			user.setUsername(resultSet.getString("username"));
-			user.setPassword(resultSet.getString("password"));
-			user.setRole(resultSet.getString("role"));
-			user.setInfo(resultSet.getString("info"));
-			userList.add(user);
-		}
-		}
-		catch (SQLException e) {
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, "%" + username + "%");
+
+			ResultSet resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				User user = new User();
+				user.setId(resultSet.getInt("id"));
+				user.setName(resultSet.getString("name"));
+				user.setAddress(resultSet.getString("address"));
+				user.setUsername(resultSet.getString("username"));
+				user.setPassword(resultSet.getString("password"));
+				user.setRole(resultSet.getString("role"));
+				user.setInfo(resultSet.getString("info"));
+				userList.add(user);
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return userList;
@@ -198,10 +198,12 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 
 	@Override
 	public boolean checkUserNameExisted(String username) {
-		//check in SQL db if there is username existed
-		User checkUser=getByUsername(username);
-		if (checkUser!=null) return true;
-		else return false;
+		// check in SQL db if there is username existed
+		User checkUser = getByUsername(username);
+		if (checkUser != null)
+			return true;
+		else
+			return false;
 	}
 
 }

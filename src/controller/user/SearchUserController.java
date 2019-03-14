@@ -32,14 +32,14 @@ public class SearchUserController extends HttpServlet {
 		String keyword=req.getParameter("keyword");
 		
 		if (searchType.equals("by-name")) {
-			userList=userService.searchByName("keyword");
+			userList=userService.searchByName(keyword);
 		}
 		else {
-			userList=userService.searchByUsername("keyword");
+			userList=userService.searchByUsername(keyword);
 		}
 		req.setAttribute("userList", userList);
 		
-		RequestDispatcher dispatcher=req.getRequestDispatcher("/admin/result");
+		RequestDispatcher dispatcher=req.getRequestDispatcher("/view/admin/user/SearchResultUser.jsp");
 		dispatcher.forward(req, resp);		
 	}
 	
