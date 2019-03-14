@@ -5,9 +5,10 @@ import java.util.List;
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
 import model.User;
+import service.UserService;
 
 //call matching methods from UserDaoImpl
-public class UserServiceImpl implements UserDao {
+public class UserServiceImpl implements UserService {
 	private UserDao userDaoImpl=new UserDaoImpl();
 	
 	@Override
