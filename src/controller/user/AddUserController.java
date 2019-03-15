@@ -13,7 +13,7 @@ import model.User;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
-@WebServlet(urlPatterns = { "/admin/add-user" })
+@WebServlet(urlPatterns = { "/admin/user/add" })
 public class AddUserController extends HttpServlet {
 
 	@Override

@@ -12,7 +12,7 @@
 			<h1>Add new user</h1>
 		</div>
 		<div>
-			<form method="post" action="add-user">
+			<form method="post" action="add">
 				<div>
 					NAME <input type="text" name="name" value="${param.name}" required="required" autofocus="autofocus" />
 				</div>

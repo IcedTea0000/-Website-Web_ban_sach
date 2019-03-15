@@ -13,7 +13,7 @@ import model.User;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
-@WebServlet(urlPatterns = { "/admin/update-user" })
+@WebServlet(urlPatterns = { "/admin/user/update" })
 public class UpdateUserController extends HttpServlet {
 
 	@Override

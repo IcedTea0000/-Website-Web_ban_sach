@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div>
-		<table >
+		<table>
 			<tr>
 				<th>Id</th>
 				<th>Name</th>
@@ -29,9 +29,9 @@
 					<td>${user.password}</td>
 					<td>${user.role}</td>
 					<td>${user.info}</td>
-					<td><a href="update-user?userId=${user.id}">Edit</a>
-						<a href="delete-user?deleteId=${user.id}">Delete</a>					
-					</td>
+					<td><a href="get-info?id=${user.id}">Info</a> <a
+						href="update?userId=${user.id}">Edit</a> <a
+						href="delete?deleteId=${user.id}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>

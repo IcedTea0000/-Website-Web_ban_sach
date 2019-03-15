@@ -11,12 +11,12 @@
 		<div>
 			<h1>Search User</h1>
 		</div>
-		<form method="post" action="search-user">
+		<form method="post" action="search">
 			<div>
 				Search by <br /> name <input type="radio" name="search-type"
-					value="by-name">
+					value="by-name" />
 					 username <input
-					type="radio" name="search-type" value="by-username" check="checked">
+					type="radio" name="search-type" value="by-username" checked="checked" />
 			</div>
 			<div>
 				<input type="text" name="keyword"

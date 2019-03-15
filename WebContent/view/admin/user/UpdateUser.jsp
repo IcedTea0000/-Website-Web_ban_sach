@@ -12,7 +12,7 @@
 			<h1>Update ${userToEdit.name} information</h1>
 		</div>
 		<div>
-			<form method="post" action="update-user">
+			<form method="post" action="update">
 				<div>
 					ID <input type="text" name="id" value="${userToEdit.id}"
 						 contenteditable="false" />

@@ -14,7 +14,7 @@ import model.User;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
-@WebServlet (urlPatterns= {"/admin/user/search-user"})
+@WebServlet (urlPatterns= {"/admin/user/search"})
 public class SearchUserController extends HttpServlet {
 
 	@Override
@@ -31,11 +31,12 @@ public class SearchUserController extends HttpServlet {
 		String searchType=req.getParameter("search-type");
 		String keyword=req.getParameter("keyword");
 		
-		if (searchType.equals("by-name")) {
-			userList=userService.searchByName(keyword);
+		if (searchType.equals("by-username")) {
+			userList=userService.searchByUsername(keyword);
+			
 		}
 		else {
-			userList=userService.searchByUsername(keyword);
+			userList=userService.searchByName(keyword);
 		}
 		req.setAttribute("userList", userList);
 		
