@@ -37,6 +37,7 @@ public class AddUserController extends HttpServlet {
 			// add newUser to SQL db
 			userService.add(newUser);
 			// forward to search "all" result
+			resp.sendRedirect(req.getContextPath()+"/admin/search-result"+"?keyword=");
 
 		}
 		else {
@@ -44,8 +45,6 @@ public class AddUserController extends HttpServlet {
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/user/AddUser.jsp");
 			dispatcher.forward(req, resp);
 		}
-			
-		
 	}
 
 }
