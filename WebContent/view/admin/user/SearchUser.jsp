@@ -14,9 +14,9 @@
 		<form method="post" action="search-user">
 			<div>
 				Search by <br /> name <input type="radio" name="search-type"
-					value="by-name" check="checked">
+					value="by-name">
 					 username <input
-					type="radio" name="search-type" value="by-username">
+					type="radio" name="search-type" value="by-username" check="checked">
 			</div>
 			<div>
 				<input type="text" name="keyword"

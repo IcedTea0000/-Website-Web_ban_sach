@@ -36,7 +36,7 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 	@Override
 	public void update(User newUser) {
 		// update user's information on SQL db where id=newUser.id
-		String sql = "update web_ban_sach.user set name=?, address=?, username=?, password=?, info=? " + "where id=?";
+		String sql = "update web_ban_sach.user set name=?, address=?, username=?, password=?, info=? " + "where (id=?)";
 		Connection conn = super.getConn();
 
 		try {
@@ -46,7 +46,7 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 			statement.setString(3, newUser.getUsername());
 			statement.setString(4, newUser.getPassword());
 			statement.setString(5, newUser.getInfo());
-			statement.setInt(7, newUser.getId());
+			statement.setInt(6, newUser.getId());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -57,12 +57,13 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 	@Override
 	public void delete(int userId) {
 		// delete user with id matches userId on SQL db
-		String sql = "delete from web_ban_sach.user " + "where id=?";
+		String sql = "delete from web_ban_sach.user " + "where (id=?)";
 		Connection conn = super.getConn();
 
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, userId);
+			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

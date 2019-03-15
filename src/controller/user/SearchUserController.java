@@ -14,7 +14,7 @@ import model.User;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
-@WebServlet (urlPatterns= {"/admin/search-user"})
+@WebServlet (urlPatterns= {"/admin/user/search-user"})
 public class SearchUserController extends HttpServlet {
 
 	@Override
