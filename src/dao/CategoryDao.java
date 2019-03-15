@@ -11,7 +11,11 @@ public interface CategoryDao {
 
 	public void delete(int categoryId);
 
-	public Category get(int categoryId);
+	public Category getById(int categoryId);
+
+	public Category getByName(String categoryName);
+
+	public boolean checkCategoryExisted(String categoryName);
 
 	public List<Category> searchByName(String categoryName);
 }

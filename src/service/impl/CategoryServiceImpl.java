@@ -5,9 +5,10 @@ import java.util.List;
 import dao.CategoryDao;
 import dao.impl.CategoryDaoImpl;
 import model.Category;
+import service.CategoryService;
 
 //call matching methods from CategoryDaoImpl
-public class CategoryServiceImpl implements CategoryDao {
+public class CategoryServiceImpl implements CategoryService {
 	private CategoryDao categoryDaoImpl=new CategoryDaoImpl();
 	
 	@Override
@@ -26,13 +27,23 @@ public class CategoryServiceImpl implements CategoryDao {
 	}
 
 	@Override
-	public Category get(int categoryId) {
-		return categoryDaoImpl.get(categoryId);
+	public Category getById(int categoryId) {
+		return categoryDaoImpl.getById(categoryId);
 	}
 
 	@Override
 	public List<Category> searchByName(String categoryName) {
 		return categoryDaoImpl.searchByName(categoryName);
+	}
+
+	@Override
+	public boolean checkCategoryExisted(String categoryName) {
+		return categoryDaoImpl.checkCategoryExisted(categoryName);
+	}
+
+	@Override
+	public Category getByName(String categoryName) {
+		return categoryDaoImpl.getByName(categoryName);
 	}
 
 }
