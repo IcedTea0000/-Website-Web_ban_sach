@@ -22,7 +22,7 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, newCategory.getName());
 			statement.setString(2, newCategory.getDescription());
-			statement.executeQuery();
+			statement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,7 +40,7 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
 			statement.setString(1, newCategory.getName());
 			statement.setString(2, newCategory.getDescription());
 			statement.setInt(3, newCategory.getId());
-			statement.executeQuery();
+			statement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,6 +56,7 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, categoryId);
+			statement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,12 +67,13 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
 	@Override
 	public Category getById(int categoryId) {
 		// get category object from SQL db where id matches categoryId
-		String sql = "select * from web_ban_sach.category where (categoryId=?)";
+		String sql = "select * from web_ban_sach.category where (id=?)";
 		Connection conn = super.getConn();
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, categoryId);
-			ResultSet resultSet = statement.executeQuery(sql);
+			
+			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
 				String name = resultSet.getString("name");

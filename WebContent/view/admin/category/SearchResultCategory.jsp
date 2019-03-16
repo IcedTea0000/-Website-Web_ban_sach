@@ -19,8 +19,9 @@
 				<tr>
 					<th>${category.id}</th>
 					<th>${category.name}</th>
-					<th><a href="">Info</a> <a href="">Update</a> <a href="">Delete</a>
-					</th>
+					<th><a href="get-info?id=${category.id}" /> Info
+					</a> <a href="update?id=${category.id}">Update</a>
+						<a href="delete?id=${category.id}">Delete</a></th>
 				</tr>
 			</c:forEach>
 		</table>

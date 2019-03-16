@@ -39,6 +39,7 @@ public class AddCategoryController extends HttpServlet {
 		categoryService.add(newCategory);
 		
 		//redirect to search-all result
+		resp.sendRedirect(req.getContextPath()+"/admin/category/search-result?keyword=");
 		}
 	}
 }

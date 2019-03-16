@@ -1,7 +1,6 @@
 package controller.category;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,21 +13,17 @@ import model.Category;
 import service.CategoryService;
 import service.impl.CategoryServiceImpl;
 
-@WebServlet (urlPatterns= {"/admin/category/search-result"})
-public class ResultCategoryController extends HttpServlet {
-
+@WebServlet (urlPatterns= {"/admin/category/get-info"})
+public class GetCategoryInfoController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String keyword=req.getParameter("keyword");
+		int id=Integer.parseInt(req.getParameter("id"));
 		CategoryService categoryService=new CategoryServiceImpl();
-		List<Category>categoryList=categoryService.searchByName(keyword);		
-		req.setAttribute("categoryList", categoryList);
-		RequestDispatcher dispatcher=req.getRequestDispatcher("/view/admin/category/SearchResultCategory.jsp");
+		Category category=categoryService.getById(id);
+		System.out.println("name:"+category.getName());
+		
+		req.setAttribute("category", category);
+		RequestDispatcher dispatcher=req.getRequestDispatcher("/view/admin/category/GetCategoryInfo.jsp");
 		dispatcher.forward(req, resp);
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 	}
 }

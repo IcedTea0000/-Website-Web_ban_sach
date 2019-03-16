@@ -13,9 +13,11 @@ public class Tester {
 //testing methods and objects
 	public static void main(String[] args) {
 		CategoryService categoryService=new CategoryServiceImpl();
-		Category category=categoryService.getByName("classic");
+		//Category category=categoryService.getByName("classic");
 		//System.out.println(category.getName());
 		
-		System.out.println(categoryService.checkCategoryExisted("classic"));
+		//System.out.println(categoryService.checkCategoryExisted("classic"));
+		Category test=new Category("test11","test11");
+		
 	}
 }
