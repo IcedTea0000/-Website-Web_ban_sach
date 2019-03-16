@@ -22,8 +22,8 @@ public class BookServiceImpl implements BookDao {
 	}
 
 	@Override
-	public void get(int bookId) {
-		bookDaoImpl.get(bookId);
+	public Book getById(int bookId) {
+		return bookDaoImpl.getById(bookId);
 	}
 
 	@Override
