@@ -19,8 +19,8 @@
 						autofocus="autofocus" required="required" />
 				</div>
 				<div>
-					DESCRIPTION <input type="text" name="description" value=""
-						required="required" />
+					DESCRIPTION <textarea type="text" name="description" cols="40" rows="10"
+						required="required" ></textarea>
 				</div>
 				<div>
 					PRICE <input type="text" name="price"

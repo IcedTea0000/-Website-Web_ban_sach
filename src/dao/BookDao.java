@@ -13,6 +13,7 @@ public interface BookDao {
 	public Book getById(int bookId);
 
 	public void delete(int bookId);
+		
 
 	public List<Book> searchByName(String bookName);
 	

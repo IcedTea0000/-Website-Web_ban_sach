@@ -66,6 +66,7 @@ public class BookDaoImpl extends JDBCConnection implements BookDao {
 
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, bookId);
 			ResultSet resultSet = statement.executeQuery();
 
 			while (resultSet.next()) {
@@ -93,7 +94,7 @@ public class BookDaoImpl extends JDBCConnection implements BookDao {
 	@Override
 	public void delete(int bookId) {
 		// delete book with id matches bookId on SQL db
-		String sql = "delete from web_ban_sach where (id=?)";
+		String sql = "delete from web_ban_sach.book where (id=?)";
 
 		Connection conn = super.getConn();
 		try {
