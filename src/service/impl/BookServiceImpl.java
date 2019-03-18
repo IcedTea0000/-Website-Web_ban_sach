@@ -6,9 +6,10 @@ import dao.BookDao;
 import dao.impl.BookDaoImpl;
 import model.Book;
 import model.Category;
+import service.BookService;
 
 //call BookDaoImpl matching methods
-public class BookServiceImpl implements BookDao {
+public class BookServiceImpl implements BookService {
 	private BookDao bookDaoImpl=new BookDaoImpl();
 	
 	@Override
