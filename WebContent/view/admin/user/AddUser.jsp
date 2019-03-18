@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div>
+	<c:import url="../Menu.jsp"></c:import>	
 		<div>
 			<h1>Add new user</h1>
 		</div>

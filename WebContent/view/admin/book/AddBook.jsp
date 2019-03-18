@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div>
+		<c:import url="../Menu.jsp"></c:import>	
 		<div>
 			<h1>Add new book</h1>
 		</div>

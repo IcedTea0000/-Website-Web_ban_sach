@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div>
+	<c:import url="../Menu.jsp"></c:import>	
 		<div>
 			<h1>Search for category</h1>
 		</div>

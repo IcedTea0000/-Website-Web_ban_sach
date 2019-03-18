@@ -8,6 +8,7 @@
 </head>
 <body>
 <div>
+<c:import url="../Menu.jsp"></c:import>	
 <h1>Add category</h1>
 <div>
 <form method="post" action="add">

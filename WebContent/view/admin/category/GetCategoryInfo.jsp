@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div>
+	<c:import url="../Menu.jsp"></c:import>	
 		<div>
 			<h1>Category ${category.name}'s info</h1>
 		</div>

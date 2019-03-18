@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div>
+	<c:import url="../Menu.jsp"></c:import>	
 		<div>
 			<h1>Update ${userToEdit.name} information</h1>
 		</div>

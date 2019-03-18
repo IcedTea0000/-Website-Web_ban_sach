@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div>
+	<c:import url="../Menu.jsp"></c:import>	
 		<table>
 			<tr>
 				<th>ID</th>
