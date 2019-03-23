@@ -197,3 +197,5 @@
 	<script src="${pageContext.request.contextPath}/view/js/categories.js"></script>
 </body>
 </html>
+
+

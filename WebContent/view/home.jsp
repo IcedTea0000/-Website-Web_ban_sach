@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/view/styles/bootstrap4/bootstrap.min.css">
-<link href="${pageContext.request.contextPath}/view/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
+<link
+	href="${pageContext.request.contextPath}/view/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/view/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -18,8 +20,10 @@
 	href="${pageContext.request.contextPath}/view/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/view/plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/view/styles/main_styles.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/view/styles/responsive.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/view/styles/main_styles.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/view/styles/responsive.css">
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
@@ -36,7 +40,7 @@
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
 					<div class="home_slider_background"
-						style="background-image: url(images/home_slider_1.jpg)"></div>
+						style="background-image: url(${pageContext.request.contextPath}/view/images/home_slider_1.jpg)"></div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
@@ -62,7 +66,7 @@
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
 					<div class="home_slider_background"
-						style="background-image: url(images/home_slider_1.jpg)"></div>
+						style="background-image: url(${pageContext.request.contextPath}/view/images/home_slider_1.jpg)"></div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
@@ -88,7 +92,7 @@
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
 					<div class="home_slider_background"
-						style="background-image: url(images/home_slider_1.jpg)"></div>
+						style="background-image: url(${pageContext.request.contextPath}/view/images/home_slider_1.jpg)"></div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
@@ -141,14 +145,14 @@
 			class="avds_container d-flex flex-lg-row flex-column align-items-start justify-content-between">
 			<div class="avds_small">
 				<div class="avds_background"
-					style="background-image: url(images/avds_small.jpg)"></div>
+					style="background-image: url(${pageContext.request.contextPath}/view/images/avds_small.jpg)"></div>
 				<div class="avds_small_inner">
 					<div class="avds_discount_container">
 						<img src="images/discount.png" alt="">
 						<div>
 							<div class="avds_discount">
 								<div>
-									20<span>%</span>
+									20<span></span>
 								</div>
 								<div>Discount</div>
 							</div>
@@ -164,7 +168,7 @@
 			</div>
 			<div class="avds_large">
 				<div class="avds_background"
-					style="background-image: url(images/avds_large.jpg)"></div>
+					style="background-image: url(${pageContext.request.contextPath}/view/images/avds_large.jpg)"></div>
 				<div class="avds_large_container">
 					<div class="avds_large_content">
 						<div class="avds_title">Professional Cameras</div>
@@ -188,123 +192,25 @@
 				<div class="col">
 
 					<div class="product_grid">
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image">
-								<img src="images/product_1.jpg" alt="">
-							</div>
-							<div class="product_extra product_new">
-								<a href="categories.html">New</a>
-							</div>
-							<div class="product_content">
-								<div class="product_title">
-									<a href="product.html">Smart Phone</a>
+											<c:forEach var="book" items="${bookListFeatured}">
+							<!-- Product -->
+							<div class="product">
+								<div class="product_image">
+									<img
+										src="${pageContext.request.contextPath}/download?folder=book&filename=${book.picture_name}"
+										alt="">
 								</div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image">
-								<img src="images/product_2.jpg" alt="">
-							</div>
-							<div class="product_extra product_sale">
-								<a href="categories.html">Sale</a>
-							</div>
-							<div class="product_content">
-								<div class="product_title">
-									<a href="product.html">Smart Phone</a>
+								<div class="product_extra product_new">
+									<a href="categories.html">Tag</a>
 								</div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image">
-								<img src="images/product_3.jpg" alt="">
-							</div>
-							<div class="product_content">
-								<div class="product_title">
-									<a href="product.html">Smart Phone</a>
+								<div class="product_content">
+									<div class="product_title">
+										<a href="/GreatBookList/book-info?id=${book.id}">${book.title}</a>
+									</div>
+									<div class="product_price">$ ${book.price}</div>
 								</div>
-								<div class="product_price">$670</div>
 							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image">
-								<img src="images/product_4.jpg" alt="">
-							</div>
-							<div class="product_content">
-								<div class="product_title">
-									<a href="product.html">Smart Phone</a>
-								</div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image">
-								<img src="images/product_5.jpg" alt="">
-							</div>
-							<div class="product_content">
-								<div class="product_title">
-									<a href="product.html">Smart Phone</a>
-								</div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image">
-								<img src="images/product_6.jpg" alt="">
-							</div>
-							<div class="product_extra product_hot">
-								<a href="categories.html">Hot</a>
-							</div>
-							<div class="product_content">
-								<div class="product_title">
-									<a href="product.html">Smart Phone</a>
-								</div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image">
-								<img src="images/product_7.jpg" alt="">
-							</div>
-							<div class="product_content">
-								<div class="product_title">
-									<a href="product.html">Smart Phone</a>
-								</div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image">
-								<img src="images/product_8.jpg" alt="">
-							</div>
-							<div class="product_extra product_sale">
-								<a href="categories.html">Hot</a>
-							</div>
-							<div class="product_content">
-								<div class="product_title">
-									<a href="product.html">Smart Phone</a>
-								</div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
+						</c:forEach>
 					</div>
 
 				</div>
@@ -323,7 +229,7 @@
 				<div class="col-lg-4 icon_box_col">
 					<div class="icon_box">
 						<div class="icon_box_image">
-							<img src="images/icon_1.svg" alt="">
+							<img src="${pageContext.request.contextPath}/view/images/icon_1.svg" alt="">
 						</div>
 						<div class="icon_box_title">Free Shipping Worldwide</div>
 						<div class="icon_box_text">
@@ -337,7 +243,7 @@
 				<div class="col-lg-4 icon_box_col">
 					<div class="icon_box">
 						<div class="icon_box_image">
-							<img src="images/icon_2.svg" alt="">
+							<img src="${pageContext.request.contextPath}/view/images/icon_2.svg" alt="">
 						</div>
 						<div class="icon_box_title">Free Returns</div>
 						<div class="icon_box_text">
@@ -351,7 +257,7 @@
 				<div class="col-lg-4 icon_box_col">
 					<div class="icon_box">
 						<div class="icon_box_image">
-							<img src="images/icon_3.svg" alt="">
+							<img src="${pageContext.request.contextPath}/view/images/icon_3.svg" alt="">
 						</div>
 						<div class="icon_box_title">24h Fast Support</div>
 						<div class="icon_box_text">
@@ -397,19 +303,30 @@
 	</div>
 
 	<jsp:include page="footer.jsp"></jsp:include>
-	<script src="${pageContext.request.contextPath}/view/js/jquery-3.2.1.min.js"></script>
-	<script src="${pageContext.request.contextPath}/view/styles/bootstrap4/popper.js"></script>
-	<script src="${pageContext.request.contextPath}/view/styles/bootstrap4/bootstrap.min.js"></script>
-	<script src="${pageContext.request.contextPath}/view/plugins/greensock/TweenMax.min.js"></script>
-	<script src="${pageContext.request.contextPath}/view/plugins/greensock/TimelineMax.min.js"></script>
-	<script src="${pageContext.request.contextPath}/view/plugins/scrollmagic/ScrollMagic.min.js"></script>
-	<script src="${pageContext.request.contextPath}/view/plugins/greensock/animation.gsap.min.js"></script>
-	<script src="${pageContext.request.contextPath}/view/plugins/greensock/ScrollToPlugin.min.js"></script>
-	<script src="${pageContext.request.contextPath}/view/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-	<script src="${pageContext.request.contextPath}/view/plugins/Isotope/isotope.pkgd.min.js"></script>
-	<script src="${pageContext.request.contextPath}/view/plugins/easing/easing.js"></script>
-	<script src="${pageContext.request.contextPath}/view/plugins/parallax-js-master/parallax.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/view/js/jquery-3.2.1.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/view/styles/bootstrap4/popper.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/view/styles/bootstrap4/bootstrap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/view/plugins/greensock/TweenMax.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/view/plugins/greensock/TimelineMax.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/view/plugins/scrollmagic/ScrollMagic.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/view/plugins/greensock/animation.gsap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/view/plugins/greensock/ScrollToPlugin.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/view/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/view/plugins/Isotope/isotope.pkgd.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/view/plugins/easing/easing.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/view/plugins/parallax-js-master/parallax.min.js"></script>
 	<script src="${pageContext.request.contextPath}/view/js/custom.js"></script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     

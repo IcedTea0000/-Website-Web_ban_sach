@@ -8,6 +8,7 @@ public class User {
 	private String password;
 	private String role;
 	private String info;
+	private String picture_name;
 
 	public User() {
 	}
@@ -30,6 +31,18 @@ public class User {
 		this.role = role;
 		this.info = info;
 	}
+
+	public User(int id, String name, String address, String username, String password, String role, String info,String picture_name) {
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.username = username;
+		this.password = password;
+		this.role = role;
+		this.info = info;
+		this.picture_name=picture_name;
+	}
+
 
 	public int getId() {
 		return id;
@@ -87,4 +100,14 @@ public class User {
 		this.info = info;
 	}
 
+	public String getPicture_name() {
+		return picture_name;
+	}
+
+	public void setPicture_name(String picture_name) {
+		this.picture_name = picture_name;
+	}
+
+	
+	
 }

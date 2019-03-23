@@ -77,10 +77,12 @@ public class BookDaoImpl extends JDBCConnection implements BookDao {
 				int category_id = resultSet.getInt("category_id");
 				String author = resultSet.getString("author");
 				int stock = resultSet.getInt("stock");
-
+				String status=resultSet.getString("status");
+				String picture_name=resultSet.getString("picture_name");
+				
 				CategoryService categoryService = new CategoryServiceImpl();
 				Category category = categoryService.getById(category_id);
-				Book book = new Book(id, title, description, price, category, author, stock);
+				Book book = new Book(id, title, description, price, category, author, stock, status, picture_name);
 				return book;
 			}
 
@@ -128,10 +130,12 @@ public class BookDaoImpl extends JDBCConnection implements BookDao {
 				int category_id = resultSet.getInt("category_id");
 				String author = resultSet.getString("author");
 				int stock = resultSet.getInt("stock");
+				String status=resultSet.getString("status");
+				String picture_name=resultSet.getString("picture_name");
 
 				CategoryService categoryService = new CategoryServiceImpl();
 				Category category = categoryService.getById(category_id);
-				Book book = new Book(id, title, description, price, category, author, stock);
+				Book book = new Book(id, title, description, price, category, author, stock,status,picture_name);
 				bookList.add(book);
 			}
 			return bookList;
@@ -165,10 +169,50 @@ public class BookDaoImpl extends JDBCConnection implements BookDao {
 				int category_id = resultSet.getInt("category_id");
 				String author = resultSet.getString("author");
 				int stock = resultSet.getInt("stock");
+				String status=resultSet.getString("status");
+				String picture_name=resultSet.getString("picture_name");
 
 				CategoryService categoryService = new CategoryServiceImpl();
 				Category newCategory = categoryService.getById(category_id);
-				Book book = new Book(id, title, description, price, category, author, stock);
+				Book book = new Book(id, title, description, price, category, author, stock,status,picture_name);
+				bookList.add(book);
+			}
+			return bookList;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<Book> searchByStatus(String bookStatus) {
+		// search for book list in SQL db with special feature (featured, sale, hot)
+		String sql = "select * from web_ban_sach.book where status=?";
+
+		Connection conn = super.getConn();
+
+		try {
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, bookStatus);
+			
+			ResultSet resultSet = statement.executeQuery();
+			List<Book> bookList=new ArrayList<Book>();
+			while (resultSet.next()) {
+				int id = resultSet.getInt("id");
+				String title = resultSet.getString("title");
+				String description = resultSet.getString("description");
+				double price = resultSet.getDouble("price");
+				int category_id = resultSet.getInt("category_id");
+				String author = resultSet.getString("author");
+				int stock = resultSet.getInt("stock");
+				String status=bookStatus;
+				String picture_name=resultSet.getString("picture_name");
+				
+
+				CategoryService categoryService = new CategoryServiceImpl();
+				Category category = categoryService.getById(category_id);
+				Book book = new Book(id, title, description, price, category, author, stock,status,picture_name);
 				bookList.add(book);
 			}
 			return bookList;

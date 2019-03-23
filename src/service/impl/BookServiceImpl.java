@@ -42,4 +42,9 @@ public class BookServiceImpl implements BookService {
 		return bookDaoImpl.searchByNC(bookName, category);
 	}
 
+	@Override
+	public List<Book> searchByStatus(String bookStatus) {
+		return bookDaoImpl.searchByStatus(bookStatus);
+	}
+
 }

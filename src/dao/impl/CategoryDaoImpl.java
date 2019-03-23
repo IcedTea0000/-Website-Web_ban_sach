@@ -78,7 +78,9 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
 				int id = resultSet.getInt("id");
 				String name = resultSet.getString("name");
 				String description = resultSet.getString("description");
-				Category category = new Category(id, name, description);
+				String picture_name=resultSet.getString("picture_name");
+				
+				Category category = new Category(id, name, description,picture_name);
 				return category;
 			}
 		} catch (SQLException e) {
@@ -103,7 +105,9 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
 				int id = resultSet.getInt("id");
 				String name = resultSet.getString("name");
 				String description = resultSet.getString("description");
-				Category category = new Category(id, name, description);
+				String picture_name=resultSet.getString("picture_name");
+				
+				Category category = new Category(id, name, description,picture_name);			
 				return category;
 			}
 			
@@ -130,7 +134,9 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
 				int id = resultSet.getInt("id");
 				String name = resultSet.getString("name");
 				String description = resultSet.getString("description");
-				Category category = new Category(id, name, description);
+				String picture_name=resultSet.getString("picture_name");
+				
+				Category category = new Category(id, name, description,picture_name);
 				categoryList.add(category);
 			}
 			return categoryList;

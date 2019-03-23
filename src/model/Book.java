@@ -8,6 +8,8 @@ public class Book {
 	private Category category;
 	private String author;
 	private int stock;
+	private String status; //sale, hot, featured
+	private String picture_name;
 
 	public Book() {
 	}
@@ -30,6 +32,19 @@ public class Book {
 		this.author = author;
 		this.stock = stock;
 	}
+	
+	public Book(int id,String title, String description, double price, Category category, String author, int stock, String status, String picture_name) {
+		this.id=id;
+		this.title = title;
+		this.description = description;
+		this.price = price;
+		this.category = category;
+		this.author = author;
+		this.stock = stock;
+		this.status=status;
+		this.picture_name=picture_name;
+	}
+	
 
 	public int getId() {
 		return id;
@@ -87,4 +102,22 @@ public class Book {
 		this.stock = stock;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getPicture_name() {
+		return picture_name;
+	}
+
+	public void setPicture_name(String picture_name) {
+		this.picture_name = picture_name;
+	}
+
+	
+	
 }

@@ -18,4 +18,6 @@ public interface BookDao {
 	public List<Book> searchByName(String bookName);
 	
 	public List<Book> searchByNC(String bookName,Category category);
+	
+	public List<Book> searchByStatus(String bookStatus);
 }

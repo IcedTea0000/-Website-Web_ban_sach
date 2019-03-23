@@ -90,6 +90,7 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 				user.setPassword(resultSet.getString("password"));
 				user.setRole(resultSet.getString("role"));
 				user.setInfo(resultSet.getString("info"));
+				user.setPicture_name(resultSet.getString("picture_name"));
 				return user;
 			}
 		} catch (SQLException e) {
@@ -119,6 +120,8 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 				user.setPassword(resultSet.getString("password"));
 				user.setRole(resultSet.getString("role"));
 				user.setInfo(resultSet.getString("info"));
+				user.setPicture_name(resultSet.getString("picture_name"));
+
 				return user;
 			}
 
@@ -159,6 +162,8 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 				user.setPassword(resultSet.getString("password"));
 				user.setRole(resultSet.getString("role"));
 				user.setInfo(resultSet.getString("info"));
+				user.setPicture_name(resultSet.getString("picture_name"));
+
 				userList.add(user);
 			}
 		} catch (SQLException e) {
@@ -189,6 +194,8 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 				user.setPassword(resultSet.getString("password"));
 				user.setRole(resultSet.getString("role"));
 				user.setInfo(resultSet.getString("info"));
+				user.setPicture_name(resultSet.getString("picture_name"));
+
 				userList.add(user);
 			}
 		} catch (SQLException e) {
