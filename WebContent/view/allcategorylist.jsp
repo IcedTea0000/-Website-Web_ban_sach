@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,10 +69,10 @@
 			<div class="row">
 				<div class="col">
 
-					<!-- Product List -->
 					<div class="product_grid">
-					
-						<c:forEach var="book" items="${bookList}">
+						<!-- Product -->
+						<c:forEach var="category" items="${categoryList}">
+
 							<div class="product">
 								<div class="product_image">
 									<img
@@ -79,23 +80,18 @@
 										alt="">
 								</div>
 								<div class="product_extra product_new">
-									<a href="">Tag</a>
+									<a href="categories.html">Tag</a>
 								</div>
 								<div class="product_content">
 									<div class="product_title">
-										<a href="/GreatBookList/book-info?id=${book.id}">Title: ${book.title}</a>
+										<a href="/GreatBookList/category-info?id=${category.id}">Category ${category.name}</a>
 									</div>
-									<div class="product_price">Category:
-										${book.category.name}</div>
-									<div class="product_price">Price:${book.price}</div>
-									<div class="product_price">Stock:${book.stock}</div>
-									<div class="product_price">Option:</div>
 								</div>
 							</div>
+							
 						</c:forEach>
-						
-					</div>
 
+					</div>
 					<div class="product_pagination">
 						<ul>
 							<li class="active"><a href="#">01.</a></li>
@@ -119,9 +115,7 @@
 				<div class="col-lg-4 icon_box_col">
 					<div class="icon_box">
 						<div class="icon_box_image">
-							<img
-								src="${pageContext.request.contextPath}/view/images/icon_1.svg"
-								alt="">
+							<img src="${pageContext.request.contextPath}/view/images/icon_1.svg" alt="">
 						</div>
 						<div class="icon_box_title">Free Shipping Worldwide</div>
 						<div class="icon_box_text">
@@ -135,9 +129,7 @@
 				<div class="col-lg-4 icon_box_col">
 					<div class="icon_box">
 						<div class="icon_box_image">
-							<img
-								src="${pageContext.request.contextPath}/view/images/icon_2.svg"
-								alt="">
+							<img src="${pageContext.request.contextPath}/view/images/icon_2.svg" alt="">
 						</div>
 						<div class="icon_box_title">Free Returns</div>
 						<div class="icon_box_text">
@@ -151,9 +143,7 @@
 				<div class="col-lg-4 icon_box_col">
 					<div class="icon_box">
 						<div class="icon_box_image">
-							<img
-								src="${pageContext.request.contextPath}/view/images/icon_3.svg"
-								alt="">
+							<img src="${pageContext.request.contextPath}/view/images/icon_3.svg" alt="">
 						</div>
 						<div class="icon_box_title">24h Fast Support</div>
 						<div class="icon_box_text">
