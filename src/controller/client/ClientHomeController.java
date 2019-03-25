@@ -14,7 +14,7 @@ import model.Book;
 import service.BookService;
 import service.impl.BookServiceImpl;
 
-@WebServlet (urlPatterns={"/"})
+@WebServlet (urlPatterns={"/home"})
 public class ClientHomeController extends HttpServlet {
 
 	@Override

@@ -39,8 +39,11 @@
 
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
-					<div class="home_slider_background"
-						style="background-image: url(${pageContext.request.contextPath}/view/images/home_slider_1.jpg)"></div>
+					
+					<div class="owl-item home_slider_item">
+					<img src="${pageContext.request.contextPath}/view/images/ads/home_slider_1.jpg"
+										alt="">
+					</div>	
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
@@ -49,10 +52,8 @@
 										data-animation-out="animate-out fadeOut">
 										<div class="home_slider_title">A new Online Shop
 											experience.</div>
-										<div class="home_slider_subtitle">Lorem ipsum dolor sit
-											amet, consectetur adipiscing elit. Nullam a ultricies metus.
-											Sed nec molestie eros. Sed viverra velit venenatis fermentum
-											luctus.</div>
+										<div class="home_slider_subtitle">Get your FAVORITE
+											titles quick and easy.</div>
 										<div class="button button_light home_button">
 											<a href="#">Shop Now</a>
 										</div>
@@ -66,7 +67,7 @@
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
 					<div class="home_slider_background"
-						style="background-image: url(${pageContext.request.contextPath}/view/images/home_slider_1.jpg)"></div>
+						style="background-image: url('${pageContext.request.contextPath}/view/images/ads/home_slider_2.jpg')"></div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
@@ -75,10 +76,8 @@
 										data-animation-out="animate-out fadeOut">
 										<div class="home_slider_title">A new Online Shop
 											experience.</div>
-										<div class="home_slider_subtitle">Lorem ipsum dolor sit
-											amet, consectetur adipiscing elit. Nullam a ultricies metus.
-											Sed nec molestie eros. Sed viverra velit venenatis fermentum
-											luctus.</div>
+										<div class="home_slider_subtitle">A collection of
+											10,000+ book titles.</div>
 										<div class="button button_light home_button">
 											<a href="#">Shop Now</a>
 										</div>
@@ -92,19 +91,16 @@
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
 					<div class="home_slider_background"
-						style="background-image: url(${pageContext.request.contextPath}/view/images/home_slider_1.jpg)"></div>
+						style="background-image: url('${pageContext.request.contextPath}/view/images/ads/home_slider_3.jpg')"></div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
 								<div class="col">
 									<div class="home_slider_content" data-animation-in="fadeIn"
 										data-animation-out="animate-out fadeOut">
-										<div class="home_slider_title">A new Online Shop
-											experience.</div>
-										<div class="home_slider_subtitle">Lorem ipsum dolor sit
-											amet, consectetur adipiscing elit. Nullam a ultricies metus.
-											Sed nec molestie eros. Sed viverra velit venenatis fermentum
-											luctus.</div>
+										<div class="home_slider_title">Fast and Secure</div>
+										<div class="home_slider_subtitle">Yes, we will steal
+											your credit cards.</div>
 										<div class="button button_light home_button">
 											<a href="#">Shop Now</a>
 										</div>
@@ -145,10 +141,12 @@
 			class="avds_container d-flex flex-lg-row flex-column align-items-start justify-content-between">
 			<div class="avds_small">
 				<div class="avds_background"
-					style="background-image: url(${pageContext.request.contextPath}/view/images/avds_small.jpg)"></div>
+					style="background-image: url('${pageContext.request.contextPath}/view/images/ads/ad-small.jpg')"></div>
 				<div class="avds_small_inner">
 					<div class="avds_discount_container">
-						<img src="images/discount.png" alt="">
+						<img
+							src="${pageContext.request.contextPath}/view/images/discount.png"
+							alt="">
 						<div>
 							<div class="avds_discount">
 								<div>
@@ -159,7 +157,7 @@
 						</div>
 					</div>
 					<div class="avds_small_content">
-						<div class="avds_title">Smart Phones</div>
+						<div class="avds_title">Best Offers</div>
 						<div class="avds_link">
 							<a href="categories.html">See More</a>
 						</div>
@@ -168,13 +166,12 @@
 			</div>
 			<div class="avds_large">
 				<div class="avds_background"
-					style="background-image: url(${pageContext.request.contextPath}/view/images/avds_large.jpg)"></div>
+					style="background-image: url('${pageContext.request.contextPath}/view/images/ads/ad-large.jpg')"></div>
 				<div class="avds_large_container">
 					<div class="avds_large_content">
-						<div class="avds_title">Professional Cameras</div>
-						<div class="avds_text">Lorem ipsum dolor sit amet,
-							consectetur adipiscing elit. Nullam a ultricies metus. Sed nec
-							molestie eros. Sed viver ra velit venenatis fermentum luctus.</div>
+						<div class="avds_title">Ship anywhere</div>
+						<div class="avds_text">We will ship the good shit to you no
+							matter where you are on the earth.</div>
 						<div class="avds_link avds_link_large">
 							<a href="categories.html">See More</a>
 						</div>
@@ -192,7 +189,7 @@
 				<div class="col">
 
 					<div class="product_grid">
-											<c:forEach var="book" items="${bookListFeatured}">
+						<c:forEach var="book" items="${bookListFeatured}">
 							<!-- Product -->
 							<div class="product">
 								<div class="product_image">
@@ -229,12 +226,15 @@
 				<div class="col-lg-4 icon_box_col">
 					<div class="icon_box">
 						<div class="icon_box_image">
-							<img src="${pageContext.request.contextPath}/view/images/icon_1.svg" alt="">
+							<img
+								src="${pageContext.request.contextPath}/view/images/icon_1.svg"
+								alt="">
 						</div>
 						<div class="icon_box_title">Free Shipping Worldwide</div>
 						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Nullam a ultricies metus. Sed nec molestie.</p>
+							<p>This text really doesn't mean anything. So you should not
+								take time reading it. However, if you make it here, you are an
+								idiot.</p>
 						</div>
 					</div>
 				</div>
@@ -243,12 +243,15 @@
 				<div class="col-lg-4 icon_box_col">
 					<div class="icon_box">
 						<div class="icon_box_image">
-							<img src="${pageContext.request.contextPath}/view/images/icon_2.svg" alt="">
+							<img
+								src="${pageContext.request.contextPath}/view/images/icon_2.svg"
+								alt="">
 						</div>
 						<div class="icon_box_title">Free Returns</div>
 						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Nullam a ultricies metus. Sed nec molestie.</p>
+							<p>This text really doesn't mean anything. So you should not
+								take time reading it. However, if you make it here, you are an
+								idiot.</p>
 						</div>
 					</div>
 				</div>
@@ -257,12 +260,15 @@
 				<div class="col-lg-4 icon_box_col">
 					<div class="icon_box">
 						<div class="icon_box_image">
-							<img src="${pageContext.request.contextPath}/view/images/icon_3.svg" alt="">
+							<img
+								src="${pageContext.request.contextPath}/view/images/icon_3.svg"
+								alt="">
 						</div>
 						<div class="icon_box_title">24h Fast Support</div>
 						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Nullam a ultricies metus. Sed nec molestie.</p>
+							<p>This text really doesn't mean anything. So you should not
+								take time reading it. However, if you make it here, you are an
+								idiot.</p>
 						</div>
 					</div>
 				</div>
@@ -285,8 +291,9 @@
 					<div class="newsletter_content text-center">
 						<div class="newsletter_title">Subscribe to our newsletter</div>
 						<div class="newsletter_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Nullam a ultricies metus. Sed nec molestie eros</p>
+							<p>This text really doesn't mean anything. So you should not
+								take time reading it. However, if you make it here, you are an
+								idiot.</p>
 						</div>
 						<div class="newsletter_form_container">
 							<form action="#" id="newsletter_form" class="newsletter_form">
