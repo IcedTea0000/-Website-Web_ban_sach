@@ -1,5 +1,6 @@
 package controller.book;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -10,6 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
 import model.Book;
 import model.Category;
 import service.BookService;
@@ -17,40 +22,93 @@ import service.CategoryService;
 import service.impl.BookServiceImpl;
 import service.impl.CategoryServiceImpl;
 
-@WebServlet(urlPatterns = { "/admin/book/update" })
+@WebServlet(urlPatterns = { "/admin/book/update" })//?id=1
 public class UpdateBookController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int bookId=Integer.parseInt(req.getParameter("id"));
-		BookService bookService=new BookServiceImpl();
-		Book oldBook=bookService.getById(bookId);
+		int bookId = Integer.parseInt(req.getParameter("id"));
+		BookService bookService = new BookServiceImpl();
+		Book oldBook = bookService.getById(bookId);
 		req.setAttribute("oldBook", oldBook);
-		
-		CategoryService categoryService=new CategoryServiceImpl();
-		List<Category> categoryList= categoryService.searchByName("");
+
+		CategoryService categoryService = new CategoryServiceImpl();
+		List<Category> categoryList = categoryService.searchByName("");
 		req.setAttribute("categoryList", categoryList);
-		RequestDispatcher dispatcher=req.getRequestDispatcher("/view/admin/book/UpdateBook.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/book/UpdateBook.jsp");
 		dispatcher.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int id=Integer.parseInt(req.getParameter("id"));
-		String title=req.getParameter("title");
-		String description=req.getParameter("description");
-		String author=req.getParameter("author");
-		double price=Double.parseDouble(req.getParameter("price"));
-		int stock=Integer.parseInt(req.getParameter("stock"));
-		int categoryId=Integer.parseInt(req.getParameter("categoryId"));		
-		CategoryService categoryService=new CategoryServiceImpl();
-		Category category=categoryService.getById(categoryId);
-		Book newBook=new Book(id, title, description, price, category, author, stock);
-		
-		BookService bookService=new BookServiceImpl();
-		bookService.update(newBook);
-		
-		//send redirect to search-all result
+		DiskFileItemFactory factory = new DiskFileItemFactory();
+		ServletFileUpload fileUpload = new ServletFileUpload(factory);
+
+		try {
+			List<FileItem> fileList = fileUpload.parseRequest(req);
+			Book newBook = new Book();
+
+			for (FileItem file : fileList) {
+				if (file.getFieldName().equals("id")) {
+					int id = Integer.parseInt(file.getString());
+					newBook.setId(id);
+				} else if (file.getFieldName().equals("title")) {
+					String title = file.getString();
+					newBook.setTitle(title);
+				} else if (file.getFieldName().equals("description")) {
+					String description = file.getString();
+					newBook.setTitle(description);
+				} else if (file.getFieldName().equals("author")) {
+					String author = file.getString();
+					newBook.setAuthor(author);
+				} else if (file.getFieldName().equals("price")) {
+					double price = Double.parseDouble(file.getString());
+					newBook.setPrice(price);
+				} else if (file.getFieldName().equals("categoryId")) {
+					int categoryId = Integer.parseInt(file.getString());
+					CategoryService categoryService = new CategoryServiceImpl();
+					Category category = categoryService.getById(categoryId);
+					newBook.setCategory(category);
+				} else if (file.getFieldName().equals("stock")) {
+					int stock = Integer.parseInt(file.getString());
+					newBook.setStock(stock);
+				} else if (file.getFieldName().equals("status")) {
+					String status = file.getString();
+					newBook.setStatus(status);
+				} else if (file.getFieldName().equals("picture")) {
+					// if new picture uploaded
+					if (file.getSize() > 0) {
+						//get new picture name
+						String originalName=file.getName();
+						int index=originalName.lastIndexOf("\\");
+						String pictureName=originalName.substring(index+1);
+						newBook.setPicture_name(pictureName);
+						
+						//upload picture 
+						String PICTURE_FOLDER="D:\\javaWorkspace\\GreatBookList\\WebContent\\view\\images\\book\\";
+						File pictureFile=new File(PICTURE_FOLDER+pictureName);
+						file.write(pictureFile);
+						
+						
+					} else {
+						int bookId=newBook.getId();
+						BookService bookService=new BookServiceImpl();
+						Book oldBook=bookService.getById(bookId);
+						String oldPictureName=oldBook.getPicture_name();
+						newBook.setPicture_name(oldPictureName);
+					}
+					BookService bookService = new BookServiceImpl();
+					bookService.update(newBook);
+				}
+
+			}
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// send redirect to search-all result
 		resp.sendRedirect("search-result?categoryName=all&keyword=");
 	}
 }

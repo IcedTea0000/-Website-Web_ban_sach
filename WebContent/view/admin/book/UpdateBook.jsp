@@ -9,12 +9,12 @@
 </head>
 <body>
 	<div>
-	<c:import url="../Menu.jsp"></c:import>	
+		<c:import url="../Menu.jsp"></c:import>
 		<div>
 			<h1>Update Book Info</h1>
 		</div>
 		<div>
-			<form method="post" action="">
+			<form method="post" action="" enctype="multipart/form-data">
 				<div>
 					ID <input name="id" value="${oldBook.id}" type="text"
 						readonly="readonly" />
@@ -23,8 +23,7 @@
 					TITLE <input name="title" value="${oldBook.title}" type="text" />
 				</div>
 				<div>
-					DESCRIPTION
-					<br/>
+					DESCRIPTION <br />
 					<textarea rows="10" cols="40" name="description">${oldBook.description}</textarea>
 				</div>
 				<div>
@@ -34,8 +33,7 @@
 					PRICE <input name="price" value="${oldBook.price}" type="text" />
 				</div>
 				<div>
-					OLD CATEGORY: ${oldBook.category.name} <br /> 
-					NEW CATEGORY <br/>
+					OLD CATEGORY: ${oldBook.category.name} <br /> NEW CATEGORY <br />
 					<select name="categoryId" required="required">
 						<c:forEach var="category" items="${categoryList}">
 							<option value="${category.id}">${category.name}</option>
@@ -44,6 +42,15 @@
 				</div>
 				<div>
 					STOCK <input name="stock" value="${oldBook.stock}" type="text" />
+				</div>
+				<div>
+					STATUS <input name="status" value="${oldBook.status}" type="text" />
+				</div>
+				<div>
+					OLD PICTURE <img alt="" src="/GreatBookList/download?folder=book&filename=${oldBook.picture_name}" />
+				</div>
+				<div>
+				NEW PICTURE <input type="file" name="picture"  />
 				</div>
 				<br />
 				<button type="submit">Update Book</button>

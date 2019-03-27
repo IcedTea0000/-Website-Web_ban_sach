@@ -32,6 +32,18 @@ public class Book {
 		this.author = author;
 		this.stock = stock;
 	}
+
+	public Book(int id,String title, String description, double price, Category category, String author, int stock, String status) {
+		this.id=id;
+		this.title = title;
+		this.description = description;
+		this.price = price;
+		this.category = category;
+		this.author = author;
+		this.stock = stock;
+		this.status=status;
+	}
+
 	
 	public Book(int id,String title, String description, double price, Category category, String author, int stock, String status, String picture_name) {
 		this.id=id;

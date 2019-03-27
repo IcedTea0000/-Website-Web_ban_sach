@@ -22,6 +22,8 @@
 					<th>CATEGORY</th>
 					<th>AUTHOR</th>
 					<th>STOCK</th>
+					<th>STATUS</th>
+					<th>PICTURE</th>
 					<th>OPTION</th>
 				</tr>
 				<c:forEach var="book" items="${bookList}">
@@ -32,6 +34,8 @@
 						<th>${book.category.name}</th>
 						<th>${book.author}</th>
 						<th>${book.stock}</th>
+						<th>${book.status}</th>
+						<th><img width="100" src="/GreatBookList/download?folder=book&filename=${book.picture_name}" /></th>
 						<th><a href="get-info?id=${book.id}" /> Info </a> <a
 							href="update?id=${book.id}">Update</a> <a
 							href="delete?id=${book.id}">Delete</a></th>

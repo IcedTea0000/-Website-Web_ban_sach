@@ -17,6 +17,8 @@
 <div>PRICE:$ ${book.price}</div>
 <div>CATEGORY: ${book.category.name}</div>
 <div>STOCK: ${book.stock}</div>
+<div>STATUS: ${book.status}</div>
+<div>PICTURE: <img src="/GreatBookList/download?folder=book&filename=${book.picture_name}" alt="" width="200" /></div>
 </div>
 </body>
 </html>

@@ -14,7 +14,7 @@
 			<h1>Add new book</h1>
 		</div>
 		<div>
-			<form method="post" action="">
+			<form method="post" action="" enctype="multipart/form-data">
 				<div>
 					TITLE <input type="text" name="title" value=""
 						autofocus="autofocus" required="required" />
@@ -34,6 +34,8 @@
 				<div>
 					STOCK <input type="text" name="stock" value="" required="required" />
 				</div>
+				<div>STATUS <input type="text" name="status"/></div>
+				
 				<div>
 					CATEGORY <br />
 					<div>
@@ -44,6 +46,13 @@
 						</select>
 					</div>
 				</div>
+				<div>
+					PICTURE <br/>
+					<div>
+						<input type="file" name="picture_name" required="required"/>
+					</div>				
+				</div>
+				
 				<br />
 				<button type="submit">Add Book</button>
 			</form>

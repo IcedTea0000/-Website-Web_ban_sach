@@ -18,7 +18,7 @@ public class BookDaoImpl extends JDBCConnection implements BookDao {
 	@Override
 	public void add(Book newBook) {
 		// add object newBook to SQL db
-		String sql = "insert into web_ban_sach.book (title,description, price, category_id, author, stock) values (?,?,?,?,?,?)";
+		String sql = "insert into web_ban_sach.book (title,description, price, category_id, author, stock, status, picture_name) values (?,?,?,?,?,?,?,?)";
 		Connection conn = super.getConn();
 
 		try {
@@ -29,6 +29,8 @@ public class BookDaoImpl extends JDBCConnection implements BookDao {
 			statement.setInt(4, newBook.getCategory().getId());
 			statement.setString(5, newBook.getAuthor());
 			statement.setInt(6, newBook.getStock());
+			statement.setString(7, newBook.getStatus());
+			statement.setString(8, newBook.getPicture_name());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -39,7 +41,7 @@ public class BookDaoImpl extends JDBCConnection implements BookDao {
 	@Override
 	public void update(Book newBook) {
 		// update book's information on SQL db where id=newBook.id
-		String sql = "update web_ban_sach.book set title=?,description=?,price=?,category_id=?,author=?,stock=? where (id=?)";
+		String sql = "update web_ban_sach.book set title=?,description=?,price=?,category_id=?,author=?,stock=?,status=?,picture_name=? where (id=?)";
 		Connection conn = super.getConn();
 
 		try {
@@ -50,7 +52,9 @@ public class BookDaoImpl extends JDBCConnection implements BookDao {
 			statement.setInt(4, newBook.getCategory().getId());
 			statement.setString(5, newBook.getAuthor());
 			statement.setInt(6, newBook.getStock());
-			statement.setInt(7, newBook.getId());
+			statement.setString(7, newBook.getStatus());
+			statement.setString(8, newBook.getPicture_name());
+			statement.setInt(9, newBook.getId());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
