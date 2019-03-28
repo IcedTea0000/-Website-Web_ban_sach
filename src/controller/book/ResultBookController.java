@@ -17,7 +17,7 @@ import service.CategoryService;
 import service.impl.BookServiceImpl;
 import service.impl.CategoryServiceImpl;
 
-@WebServlet (urlPatterns={"/admin/book/search-result"})
+@WebServlet (urlPatterns={"/admin/book/search-result"})//?categoryName=all&keyword=
 public class ResultBookController extends HttpServlet {
 
 	@Override
