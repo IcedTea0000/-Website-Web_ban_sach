@@ -1,5 +1,11 @@
 <html>
 <div>
+<a href="/GreatBookList/login">Login</a>
+</div>
+<div>
+<a>Logout</a>
+</div>
+<div>
 <a href="/GreatBookList/admin/book/add">Add Book</a>
 </div>
 <div>

@@ -16,7 +16,7 @@
 				<td>PRICE</td>
 				<td>QUANTITY</td>
 			</tr>
-			<c:forEach var="item" items="${sessionScope.cartMap}">
+			<c:forEach var="item" items="${sessionScope.cartItemMap}">
 				<tr>
 					<td>${item.value.book.title} - ${item.value.book.author}</td>
 					<td>${item.value.book.price}</td>
@@ -24,6 +24,10 @@
 				</tr>
 			</c:forEach>
 		</table>
+	</div>
+	<div>
+		<label>TOTAL PRICE</label>
+		<span>$ ${sessionScope.totalPrice}</span>
 	</div>
 </body>
 </html>

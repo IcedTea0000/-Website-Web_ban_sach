@@ -2,10 +2,11 @@ package model;
 
 public class CartItem {
 	private int id;
+	private int userId;
 	private Book book;
 	private int quantityInCart;
 	private int cartOrderId;
-
+	
 	public CartItem() {
 	}
 
@@ -13,9 +14,23 @@ public class CartItem {
 		this.book = book;
 		this.quantityInCart = quantityInCart;
 	}
-
-	public CartItem(int id, Book book, int quantityInCart, int cartOrderId) {
+	
+	public CartItem(Book book, int quantityInCart,int cartOrderId) {
+		this.book = book;
+		this.quantityInCart = quantityInCart;
+		this.cartOrderId=cartOrderId;
+	}
+	
+	public CartItem(int id, int userId, Book book, int quantityInCart, int cartOrderId) {
 		this.id = id;
+		this.userId=userId;
+		this.book = book;
+		this.quantityInCart = quantityInCart;
+		this.cartOrderId = cartOrderId;
+	}
+	
+	public CartItem(int userId, Book book, int quantityInCart, int cartOrderId) {
+		this.userId=userId;
 		this.book = book;
 		this.quantityInCart = quantityInCart;
 		this.cartOrderId = cartOrderId;
@@ -53,4 +68,13 @@ public class CartItem {
 		this.cartOrderId = cartOrderId;
 	}
 
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	
 }
