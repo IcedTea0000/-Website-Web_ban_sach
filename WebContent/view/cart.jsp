@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,88 +9,25 @@
 <meta name="description" content="Sublime project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css"
-	href="styles/bootstrap4/bootstrap.min.css">
-<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css"
+	href="${pageContext.request.contextPath}/view/styles/bootstrap4/bootstrap.min.css">
+<link href="${pageContext.request.contextPath}/view/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="styles/cart.css">
-<link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/view/styles/cart.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/view/styles/cart_responsive.css">
 </head>
 <body>
 
 	<div class="super_container">
-<jsp:include page="header.jsp"></jsp:include>
+		<jsp:include page="header.jsp"></jsp:include>
 
 
 		<!-- Menu -->
 
-		<div class="menu menu_mm trans_300">
-			<div class="menu_container menu_mm">
-				<div class="page_menu_content">
+		<jsp:include page="menu.jsp"></jsp:include>
 
-					<div class="page_menu_search menu_mm">
-						<form action="#">
-							<input type="search" required="required"
-								class="page_menu_search_input menu_mm"
-								placeholder="Search for products...">
-						</form>
-					</div>
-					<ul class="page_menu_nav menu_mm">
-						<li class="page_menu_item has-children menu_mm"><a
-							href="index.html">Home<i class="fa fa-angle-down"></i></a>
-							<ul class="page_menu_selection menu_mm">
-								<li class="page_menu_item menu_mm"><a
-									href="categories.html">Categories<i
-										class="fa fa-angle-down"></i></a></li>
-								<li class="page_menu_item menu_mm"><a href="product.html">Product<i
-										class="fa fa-angle-down"></i></a></li>
-								<li class="page_menu_item menu_mm"><a href="cart.html">Cart<i
-										class="fa fa-angle-down"></i></a></li>
-								<li class="page_menu_item menu_mm"><a href="checkout.html">Checkout<i
-										class="fa fa-angle-down"></i></a></li>
-								<li class="page_menu_item menu_mm"><a href="contact.html">Contact<i
-										class="fa fa-angle-down"></i></a></li>
-							</ul></li>
-						<li class="page_menu_item has-children menu_mm"><a
-							href="categories.html">Categories<i class="fa fa-angle-down"></i></a>
-							<ul class="page_menu_selection menu_mm">
-								<li class="page_menu_item menu_mm"><a
-									href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-								<li class="page_menu_item menu_mm"><a
-									href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-								<li class="page_menu_item menu_mm"><a
-									href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-								<li class="page_menu_item menu_mm"><a
-									href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-							</ul></li>
-						<li class="page_menu_item menu_mm"><a href="index.html">Accessories<i
-								class="fa fa-angle-down"></i></a></li>
-						<li class="page_menu_item menu_mm"><a href="#">Offers<i
-								class="fa fa-angle-down"></i></a></li>
-						<li class="page_menu_item menu_mm"><a href="contact.html">Contact<i
-								class="fa fa-angle-down"></i></a></li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="menu_close">
-				<i class="fa fa-times" aria-hidden="true"></i>
-			</div>
-
-			<div class="menu_social">
-				<ul>
-					<li><a href="#"><i class="fa fa-pinterest"
-							aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-instagram"
-							aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-facebook"
-							aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-twitter"
-							aria-hidden="true"></i></a></li>
-				</ul>
-			</div>
-		</div>
-
-
+		<br/>
+		<br/>
+		<br/>
 
 		<!-- Cart Info -->
 
@@ -98,69 +37,69 @@
 					<div class="col">
 						<!-- Column Titles -->
 						<div class="cart_info_columns clearfix">
-							<div class="cart_info_col cart_info_col_product">Product</div>
+							<div class="cart_info_col cart_info_col_product">Book</div>
 							<div class="cart_info_col cart_info_col_price">Price</div>
 							<div class="cart_info_col cart_info_col_quantity">Quantity</div>
 							<div class="cart_info_col cart_info_col_total">Total</div>
 						</div>
 					</div>
 				</div>
-				<div class="row cart_items_row">
-					<div class="col">
 
-						<!-- Cart Item -->
-						<div
-							class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
-							<!-- Name -->
+					<!-- Cart Item -->
+						<c:forEach var="item" items="${cartItemMap}">
+											<div class="row cart_items_row">
+					<div class="col">
 							<div
-								class="cart_item_product d-flex flex-row align-items-center justify-content-start">
-								<div class="cart_item_image">
-									<div>
-										<img src="images/cart_1.jpg" alt="">
+								class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+								<!-- Name -->
+								<div
+									class="cart_item_product d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_item_image">
+										<div>
+											<img width="100" src="${pageContext.request.contextPath}/view/images/book/${item.value.book.picture_name}" alt="">
+										</div>
+									</div>
+									<div class="cart_item_name_container">
+										<div class="cart_item_name">
+											<a href="${pageContext.request.contextPath}/book-info?id=${item.value.book.id}">${item.value.book.title} - ${item.value.book.author}</a>
+										</div>
+		
 									</div>
 								</div>
-								<div class="cart_item_name_container">
-									<div class="cart_item_name">
-										<a href="#">Smart Phone Deluxe Edition</a>
-									</div>
-									<div class="cart_item_edit">
-										<a href="#">Edit Product</a>
-									</div>
-								</div>
-							</div>
-							<!-- Price -->
-							<div class="cart_item_price">$790.90</div>
-							<!-- Quantity -->
-							<div class="cart_item_quantity">
-								<div class="product_quantity_container">
-									<div class="product_quantity clearfix">
-										<span>Qty</span> <input id="quantity_input" type="text"
-											pattern="[0-9]*" value="1">
-										<div class="quantity_buttons">
-											<div id="quantity_inc_button"
-												class="quantity_inc quantity_control">
-												<i class="fa fa-chevron-up" aria-hidden="true"></i>
-											</div>
-											<div id="quantity_dec_button"
-												class="quantity_dec quantity_control">
-												<i class="fa fa-chevron-down" aria-hidden="true"></i>
+								<!-- Price -->
+								<div class="cart_item_price">${item.value.book.price}</div>
+								<!-- Quantity -->
+								<div class="cart_item_quantity">
+									<div class="product_quantity_container">
+										<div class="product_quantity clearfix">
+											<span>Qty</span> <input id="quantity_input" type="text"
+												pattern="[0-9]*" value="${item.value.quantityInCart}">
+											<div class="quantity_buttons">
+												<div id="quantity_inc_button"
+													class="quantity_inc quantity_control">
+													<i class="fa fa-chevron-up" aria-hidden="true"></i>
+												</div>
+												<div id="quantity_dec_button"
+													class="quantity_dec quantity_control">
+													<i class="fa fa-chevron-down" aria-hidden="true"></i>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
+								<!-- Total -->
+								<div class="cart_item_total">${item.value.book.price*item.value.quantityInCart}</div>
 							</div>
-							<!-- Total -->
-							<div class="cart_item_total">$790.90</div>
-						</div>
-
 					</div>
 				</div>
+				</c:forEach>
+
 				<div class="row row_cart_buttons">
 					<div class="col">
 						<div
 							class="cart_buttons d-flex flex-lg-row flex-column align-items-start justify-content-start">
 							<div class="button continue_shopping_button">
-								<a href="#">Continue shopping</a>
+								<a href="${pageContext.request.contextPath}/book-list?categoryName=all&keyword=">Continue shopping</a>
 							</div>
 							<div class="cart_buttons_right ml-lg-auto">
 								<div class="button clear_cart_button">
@@ -179,18 +118,10 @@
 						<!-- Delivery -->
 						<div class="delivery">
 							<div class="section_title">Shipping method</div>
-							<div class="section_subtitle">Select the one you want</div>
 							<div class="delivery_options">
-								<label class="delivery_option clearfix">Next day
-									delivery <input type="radio" name="radio"> <span
-									class="checkmark"></span> <span class="delivery_price">$4.99</span>
-								</label> <label class="delivery_option clearfix">Standard
-									delivery <input type="radio" name="radio"> <span
-									class="checkmark"></span> <span class="delivery_price">$1.99</span>
-								</label> <label class="delivery_option clearfix">Personal pickup
-									<input type="radio" checked="checked" name="radio"> <span
+								<label class="delivery_option clearfix">Standard delivery <input type="radio" name="radio" checked="checked"> <span
 									class="checkmark"></span> <span class="delivery_price">Free</span>
-								</label>
+								</label> 
 							</div>
 						</div>
 
@@ -218,7 +149,7 @@
 									<li
 										class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_total_title">Subtotal</div>
-										<div class="cart_total_value ml-auto">$790.90</div>
+										<div class="cart_total_value ml-auto">${sessionScope.totalPrice}</div>
 									</li>
 									<li
 										class="d-flex flex-row align-items-center justify-content-start">
@@ -228,7 +159,7 @@
 									<li
 										class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_total_title">Total</div>
-										<div class="cart_total_value ml-auto">$790.90</div>
+										<div class="cart_total_value ml-auto">${sessionScope.totalPrice}</div>
 									</li>
 								</ul>
 							</div>
@@ -242,17 +173,17 @@
 		</div>
 
 
-<jsp:include page="footer.jsp"></jsp:include>
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="styles/bootstrap4/popper.js"></script>
-	<script src="styles/bootstrap4/bootstrap.min.js"></script>
-	<script src="plugins/greensock/TweenMax.min.js"></script>
-	<script src="plugins/greensock/TimelineMax.min.js"></script>
-	<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
-	<script src="plugins/greensock/animation.gsap.min.js"></script>
-	<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
-	<script src="plugins/easing/easing.js"></script>
-	<script src="plugins/parallax-js-master/parallax.min.js"></script>
-	<script src="js/cart.js"></script>
+		<jsp:include page="footer.jsp"></jsp:include>
+		<script src="${pageContext.request.contextPath}/view/js/jquery-3.2.1.min.js"></script>
+		<script src="${pageContext.request.contextPath}/view/styles/bootstrap4/popper.js"></script>
+		<script src="${pageContext.request.contextPath}/view/styles/bootstrap4/bootstrap.min.js"></script>
+		<script src="${pageContext.request.contextPath}/view/plugins/greensock/TweenMax.min.js"></script>
+		<script src="${pageContext.request.contextPath}/view/plugins/greensock/TimelineMax.min.js"></script>
+		<script src="${pageContext.request.contextPath}/view/plugins/scrollmagic/ScrollMagic.min.js"></script>
+		<script src="${pageContext.request.contextPath}/view/plugins/greensock/animation.gsap.min.js"></script>
+		<script src="${pageContext.request.contextPath}/view/plugins/greensock/ScrollToPlugin.min.js"></script>
+		<script src="${pageContext.request.contextPath}/view/plugins/easing/easing.js"></script>
+		<script src="${pageContext.request.contextPath}/view/plugins/parallax-js-master/parallax.min.js"></script>
+		<script src="${pageContext.request.contextPath}/view/js/cart.js"></script>
 </body>
 </html>

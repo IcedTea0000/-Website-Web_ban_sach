@@ -16,4 +16,6 @@ public interface CartItemService {
 	
 	public Map<Integer, CartItem> searchByOrderId (int cartOrderId);
 	
+	public CartItem get(int userId, int bookId);
+	
 }

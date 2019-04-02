@@ -14,7 +14,7 @@
 							</div>
 							<nav class="main_nav">
 								<ul>
-									<li><a href="/GreatBookList">Home</a>
+									<li><a href="/GreatBookList/home">Home</a>
 									</li>
 									<li class="hassubs"><a href="/GreatBookList/category-list">Categories</a>
 										<ul>

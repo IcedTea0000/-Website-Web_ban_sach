@@ -41,5 +41,11 @@ public class CartItemServiceImpl implements CartItemService {
 		return cartItemDao.searchByOrderId(cartOrderId);
 	}
 
+	@Override
+	public CartItem get(int userId, int bookId) {
+		// TODO Auto-generated method stub
+		return cartItemDao.get(userId, bookId);
+	}
+
 	
 }

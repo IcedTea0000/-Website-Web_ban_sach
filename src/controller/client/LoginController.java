@@ -59,6 +59,13 @@ public class LoginController extends HttpServlet {
 				for (Integer key : keyList) {
 					CartItem cartItem = cartItemMap.get(key);
 					cartItem.setUserId(user.getId());
+					CartItem oldCartItem = cartItemService.get(user.getId(), cartItem.getBook().getId());
+					if (oldCartItem != null) {
+						int quantityInCart = cartItem.getQuantityInCart();
+						quantityInCart += oldCartItem.getQuantityInCart();
+						cartItem.setQuantityInCart(quantityInCart);
+					}
+
 					cartItemService.add(cartItem);
 				}
 
@@ -68,7 +75,7 @@ public class LoginController extends HttpServlet {
 			}
 			// save new cartItemMap session
 			session.setAttribute("cartItemMap", cartItemMap);
-			
+
 			// redirect to book list
 			resp.sendRedirect("/GreatBookList/admin/book/search-result?categoryName=all&keyword=");
 		}

@@ -10,7 +10,7 @@
 			</div>
 			<ul class="page_menu_nav menu_mm">
 				<li class="page_menu_item has-children menu_mm">
-					<a href="/GreatBookList">Home<i class="fa fa-angle-down"></i></a>
+					<a href="/GreatBookList/home">Home<i class="fa fa-angle-down"></i></a>
 				</li>
 				<li class="page_menu_item has-children menu_mm">
 					<a href="/GreatBookList/category-list">Categories<i class="fa fa-angle-down"></i></a>

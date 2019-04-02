@@ -63,13 +63,15 @@ public class AddCartItemController extends HttpServlet {
 			cartItem = new CartItem(user.getId(), bookAddToCart, quantityInCart, 0);
 			cartItemService.add(cartItem);
 		} else {
+			
 			cartItem = new CartItem(bookAddToCart, quantityInCart, 0);
 		}
+		
 		cartItemMap.put(bookId, cartItem);		
 
 		session.setAttribute("cartItemMap", cartItemMap);
 
 		// redirect to cart
-		resp.sendRedirect(req.getContextPath() + "/admin/cart");
+		resp.sendRedirect(req.getContextPath() + "/cart");
 	}
 }

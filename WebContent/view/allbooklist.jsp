@@ -75,7 +75,7 @@
 							<div class="product">
 								<div class="product_image">
 									<img
-										src="${pageContext.request.contextPath}/view/images/product_1.jpg"
+										src="${pageContext.request.contextPath}/view/images/book/${book.picture_name}"
 										alt="">
 								</div>
 								<div class="product_extra product_new">
@@ -89,7 +89,9 @@
 										${book.category.name}</div>
 									<div class="product_price">Price:${book.price}</div>
 									<div class="product_price">Stock:${book.stock}</div>
-									<div class="product_price">Option:</div>
+									<div class="product_price">
+									<a href="/GreatBookList/cart/add?book_id=${book.id}">Add to Cart</a>
+									</div>
 								</div>
 							</div>
 						</c:forEach>
@@ -109,63 +111,7 @@
 		</div>
 	</div>
 
-	<!-- Icon Boxes -->
-
-	<div class="icon_boxes">
-		<div class="container">
-			<div class="row icon_box_row">
-
-				<!-- Icon Box -->
-				<div class="col-lg-4 icon_box_col">
-					<div class="icon_box">
-						<div class="icon_box_image">
-							<img
-								src="${pageContext.request.contextPath}/view/images/icon_1.svg"
-								alt="">
-						</div>
-						<div class="icon_box_title">Free Shipping Worldwide</div>
-						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Nullam a ultricies metus. Sed nec molestie.</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Icon Box -->
-				<div class="col-lg-4 icon_box_col">
-					<div class="icon_box">
-						<div class="icon_box_image">
-							<img
-								src="${pageContext.request.contextPath}/view/images/icon_2.svg"
-								alt="">
-						</div>
-						<div class="icon_box_title">Free Returns</div>
-						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Nullam a ultricies metus. Sed nec molestie.</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Icon Box -->
-				<div class="col-lg-4 icon_box_col">
-					<div class="icon_box">
-						<div class="icon_box_image">
-							<img
-								src="${pageContext.request.contextPath}/view/images/icon_3.svg"
-								alt="">
-						</div>
-						<div class="icon_box_title">24h Fast Support</div>
-						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Nullam a ultricies metus. Sed nec molestie.</p>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
+<jsp:include page="icon.jsp"></jsp:include>
 
 	<br />
 

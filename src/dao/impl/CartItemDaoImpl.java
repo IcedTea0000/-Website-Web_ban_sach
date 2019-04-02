@@ -34,8 +34,10 @@ public class CartItemDaoImpl extends JDBCConnection implements CartItemDao {
 		if (oldCartItem != null) {
 			BookDao bookDao = new BookDaoImpl();
 			Book book = bookDao.getById(bookId);
+			//quantityInCart+=oldCartItem.getQuantityInCart();
 			CartItem newCartItem = new CartItem(oldCartItem.getId(), userId, book, quantityInCart, cartOrderId);
 			update(newCartItem);
+			
 		} else {
 			String sql = "INSERT INTO web_ban_sach.cart_item (user_id, book_id, quantity,cart_order_id) VALUES (?,?,?,?)";
 			try {

@@ -39,11 +39,12 @@
 
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
-					
+
 					<div class="owl-item home_slider_item">
-					<img src="${pageContext.request.contextPath}/view/images/ads/home_slider_1.jpg"
-										alt="">
-					</div>	
+						<img
+							src="${pageContext.request.contextPath}/view/images/ads/home_slider_1.jpg"
+							alt="">
+					</div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
@@ -66,8 +67,9 @@
 
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
+
 					<div class="home_slider_background"
-						style="background-image: url('${pageContext.request.contextPath}/view/images/ads/home_slider_2.jpg')"></div>
+						style="background-image: url('/view/images/ads/home_slider_2.jpg')"></div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
@@ -216,66 +218,7 @@
 	</div>
 
 
-	<!-- Icon Boxes -->
-
-	<div class="icon_boxes">
-		<div class="container">
-			<div class="row icon_box_row">
-
-				<!-- Icon Box -->
-				<div class="col-lg-4 icon_box_col">
-					<div class="icon_box">
-						<div class="icon_box_image">
-							<img
-								src="${pageContext.request.contextPath}/view/images/icon_1.svg"
-								alt="">
-						</div>
-						<div class="icon_box_title">Free Shipping Worldwide</div>
-						<div class="icon_box_text">
-							<p>This text really doesn't mean anything. So you should not
-								take time reading it. However, if you make it here, you are an
-								idiot.</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Icon Box -->
-				<div class="col-lg-4 icon_box_col">
-					<div class="icon_box">
-						<div class="icon_box_image">
-							<img
-								src="${pageContext.request.contextPath}/view/images/icon_2.svg"
-								alt="">
-						</div>
-						<div class="icon_box_title">Free Returns</div>
-						<div class="icon_box_text">
-							<p>This text really doesn't mean anything. So you should not
-								take time reading it. However, if you make it here, you are an
-								idiot.</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Icon Box -->
-				<div class="col-lg-4 icon_box_col">
-					<div class="icon_box">
-						<div class="icon_box_image">
-							<img
-								src="${pageContext.request.contextPath}/view/images/icon_3.svg"
-								alt="">
-						</div>
-						<div class="icon_box_title">24h Fast Support</div>
-						<div class="icon_box_text">
-							<p>This text really doesn't mean anything. So you should not
-								take time reading it. However, if you make it here, you are an
-								idiot.</p>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
+	<jsp:include page="icon.jsp"></jsp:include>
 
 	<!-- Newsletter -->
 

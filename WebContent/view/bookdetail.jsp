@@ -33,12 +33,9 @@
 			<!-- Product Image -->
 			<div class="col-lg-6">
 				<div class="details_image">
-					<div class="details_image_large"><img src="${pageContext.request.contextPath}/view/images/details_1.jpg" alt=""><div class="product_extra product_new"><a href="categories.html">New</a></div></div>
+					<div class="details_image_large"><img src="${pageContext.request.contextPath}/view/images/book/${book.picture_name}" alt=""><div class="product_extra product_new"><a href="categories.html">New</a></div></div>
 					<div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
-						<div class="details_image_thumbnail active" data-image="images/details_1.jpg"><img src="${pageContext.request.contextPath}/view/images/details_1.jpg" alt=""></div>
-						<div class="details_image_thumbnail" data-image="images/details_2.jpg"><img src="${pageContext.request.contextPath}/view/images/details_2.jpg" alt=""></div>
-						<div class="details_image_thumbnail" data-image="images/details_3.jpg"><img src="${pageContext.request.contextPath}/view/images/details_3.jpg" alt=""></div>
-						<div class="details_image_thumbnail" data-image="images/details_4.jpg"><img src="${pageContext.request.contextPath}/view/images/details_4.jpg" alt=""></div>
+						<div class="details_image_thumbnail active" data-image="${pageContext.request.contextPath}/view/images/book/${book.picture_name}"><img src="${pageContext.request.contextPath}/view/images/book/${book.picture_name}" alt=""></div>
 					</div>
 				</div>
 			</div>
@@ -48,6 +45,7 @@
 				<div class="details_content">
 					<div class="details_name">${book.title}</div>
 					<br/>
+	
 					<div class="details_price">Genre: ${book.category.name}</div>
 					<br/>
 					<div class="details_price">Author: ${book.author}</div>
@@ -73,7 +71,7 @@
 								<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
 							</div>
 						</div>
-						<div class="button cart_button"><a href="#">Add to cart</a></div>
+						<div class="button cart_button"><a href="/GreatBookList/cart/add?book_id=${book.id}">Add to cart</a></div>
 					</div>
 
 					<!-- Share -->
