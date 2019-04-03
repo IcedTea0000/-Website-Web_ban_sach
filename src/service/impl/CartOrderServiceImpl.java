@@ -11,9 +11,9 @@ public class CartOrderServiceImpl implements CartOrderService {
 	CartOrderDao cartOrderDao = new CartOrderDaoImpl();
 
 	@Override
-	public void add(CartOrder cartOrder) {
+	public int add(CartOrder cartOrder) {
 		// TODO Auto-generated method stub
-		cartOrderDao.add(cartOrder);
+		return cartOrderDao.add(cartOrder);
 	}
 
 	@Override

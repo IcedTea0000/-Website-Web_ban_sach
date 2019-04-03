@@ -164,7 +164,7 @@
 								</ul>
 							</div>
 							<div class="button checkout_button">
-								<a href="#">Proceed to checkout</a>
+								<a href="${pageContext.request.contextPath}/cart/checkout">Proceed to checkout</a>
 							</div>
 						</div>
 					</div>

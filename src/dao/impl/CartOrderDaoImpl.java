@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,21 +21,30 @@ import service.impl.BookServiceImpl;
 public class CartOrderDaoImpl extends JDBCConnection implements CartOrderDao {
 
 	@Override
-	public void add(CartOrder cartOrder) {
+	public int add(CartOrder cartOrder) {
 		// add cartOrder to SQL db
 		Connection conn=super.getConn();
 		String sql="INSERT INTO web_ban_sach.cart_order (user_id, day_buy, status) VALUES (?,?,?)";
 		try {
-			PreparedStatement statement= conn.prepareStatement(sql);
+			PreparedStatement statement= conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			statement.setInt(1, cartOrder.getUserId());
 			statement.setString(2, cartOrder.getDayBuy());
 			statement.setString(3, cartOrder.getStatus());
 			
-			statement.executeUpdate();
+			statement.execute();
+			ResultSet rs=statement.getGeneratedKeys();
+			
+			int cartOrderId=0;
+			if (rs.next()) {
+				cartOrderId=rs.getInt("id");
+			}
+			return cartOrderId;
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return 0;
 	}
 
 	@Override

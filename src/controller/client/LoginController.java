@@ -25,7 +25,7 @@ public class LoginController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/client/Login.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/login.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -39,7 +39,7 @@ public class LoginController extends HttpServlet {
 
 		if (user == null) {
 			req.setAttribute("errorMessage", "Wrong username or password");
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/view/client/Login.jsp");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/view/login.jsp");
 			dispatcher.forward(req, resp);
 		} else {
 			HttpSession session = req.getSession();

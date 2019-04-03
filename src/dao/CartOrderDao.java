@@ -6,7 +6,7 @@ import model.CartOrder;
 
 public interface CartOrderDao {
 
-	public void add(CartOrder cartOrder);
+	public int add(CartOrder cartOrder);
 
 	public void delete(int cartOrderId);
 

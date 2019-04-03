@@ -18,7 +18,7 @@ public class RegisterController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/client/Register.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/register.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -35,7 +35,7 @@ public class RegisterController extends HttpServlet {
 		
 		if (userService.checkUserNameExisted(username)){
 			req.setAttribute("checkUserExisted", "Username existed");
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/view/client/Register.jsp");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/view/register.jsp");
 			dispatcher.forward(req, resp);
 		}
 		else {

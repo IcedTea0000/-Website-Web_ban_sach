@@ -16,7 +16,7 @@ public class CartOrder {
 		this.userId = userId;
 		this.cartItemMap = cartItemMap;
 		this.dayBuy = dayBuy;
-		this.status=status;
+		this.status=status;//processing,shipping,completed
 	}
 
 	public CartOrder(int id,int userId, Map<Integer, CartItem> cartItemMap, String dayBuy,String status) {
