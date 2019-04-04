@@ -19,7 +19,7 @@ public class LogoutController extends HttpServlet {
 		session.removeAttribute("cartItemMap");
 		
 		//redirect to book list
-		resp.sendRedirect("/GreatBookList/admin/book/search-result?categoryName=all&keyword=");
+		resp.sendRedirect("/GreatBookList/home");
 
 	}
 }

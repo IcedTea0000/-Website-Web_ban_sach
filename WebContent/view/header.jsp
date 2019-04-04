@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <div class="super_container">
 
 	<!-- Header -->
@@ -14,8 +16,7 @@
 							</div>
 							<nav class="main_nav">
 								<ul>
-									<li><a href="/GreatBookList/home">Home</a>
-									</li>
+									<li><a href="/GreatBookList/home">Home</a></li>
 									<li class="hassubs"><a href="/GreatBookList/category-list">Categories</a>
 										<ul>
 											<li><a href="/GreatBookList/category-info?id=1">Classic</a></li>
@@ -31,8 +32,8 @@
 							</nav>
 							<div class="header_extra ml-auto">
 								<div class="shopping_cart">
-									<a href="${pageContext.request.contextPath}/cart"> <svg version="1.1"
-											xmlns="http://www.w3.org/2000/svg"
+									<a href="${pageContext.request.contextPath}/cart"> <svg
+											version="1.1" xmlns="http://www.w3.org/2000/svg"
 											xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 											viewBox="0 0 489 489"
 											style="enable-background: new 0 0 489 489;"
@@ -76,6 +77,22 @@
 									</svg>
 									</div>
 								</div>
+
+								<div>
+									<span>Hello <c:out value="${sessionScope.userAccount.username}" default="guest" /></span> 
+									<c:choose>
+									<c:when test="${userAccount == null}">
+									<a href="${pageContext.request.contextPath}/login"> Login</a>
+		
+									</c:when>
+									<c:otherwise>
+									<a href="${pageContext.request.contextPath}/logout"> Logout</a>
+		
+									</c:otherwise>
+									</c:choose>
+								</div>
+
+
 								<div class="hamburger">
 									<i class="fa fa-bars" aria-hidden="true"></i>
 								</div>
@@ -94,8 +111,8 @@
 						<div
 							class="search_panel_content d-flex flex-row align-items-center justify-content-end">
 							<form action="${pageContext.request.contextPath}/search-book">
-								<input name="keyword" type="text" class="search_input" placeholder="Search"
-									>
+								<input name="keyword" type="text" class="search_input"
+									placeholder="Search">
 							</form>
 						</div>
 					</div>
