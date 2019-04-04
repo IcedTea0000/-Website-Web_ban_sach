@@ -48,7 +48,7 @@
 											</g>
 										</svg>
 										<div>
-											Cart <span>(0)</span>
+											Cart <span>(<c:out value="${sessionScope.cartItemSize}" default="0" />)</span>
 										</div>
 									</a>
 								</div>

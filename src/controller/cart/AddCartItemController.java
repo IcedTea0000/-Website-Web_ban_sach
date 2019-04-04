@@ -70,7 +70,7 @@ public class AddCartItemController extends HttpServlet {
 		cartItemMap.put(bookId, cartItem);		
 
 		session.setAttribute("cartItemMap", cartItemMap);
-
+		session.setAttribute("cartItemSize", cartItemMap.size());
 		// redirect to cart
 		resp.sendRedirect(req.getContextPath() + "/cart");
 	}
