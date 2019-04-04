@@ -23,11 +23,22 @@ public class SearchBookController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String keyword = req.getParameter("keyword");
+		String categoryName ="all";  //req.getParameter("categoryName");
+
 		CategoryService categoryService = new CategoryServiceImpl();
-		List<Category> categoryList = categoryService.searchByName("");
-		
-		req.setAttribute("categoryList", categoryList);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/SearchBook.jsp");
+		BookService bookService = new BookServiceImpl();
+		List<Book> bookList;
+		if (categoryName.equals("all")) {
+			bookList = bookService.searchByName(keyword);
+		} else {
+			Category category = categoryService.getByName(categoryName);
+			bookList = bookService.searchByNC(keyword, category);
+		}
+
+		req.setAttribute("bookList", bookList);
+
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/allbooklist.jsp");
 		dispatcher.forward(req, resp);
 	}
 

@@ -33,10 +33,10 @@ public class ClientCartController extends HttpServlet {
 		
 		//if user login, get cart from db
 		HttpSession session=req.getSession();
-		User currentLogin=(User)session.getAttribute("userAccount");
 		Map<Integer, CartItem> cartItemMap;
 		
-		if (currentLogin!=null){
+		if (session.getAttribute("userAccount")!=null){
+			User currentLogin=(User)session.getAttribute("userAccount");
 			CartItemService cartItemService=new CartItemServiceImpl();
 			cartItemMap= cartItemService.searchItemInCart(currentLogin.getId());
 			session.setAttribute("cartItemMap", cartItemMap);

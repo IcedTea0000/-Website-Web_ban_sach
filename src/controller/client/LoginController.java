@@ -77,7 +77,7 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("cartItemMap", cartItemMap);
 
 			// redirect to book list
-			resp.sendRedirect("/GreatBookList/admin/book/search-result?categoryName=all&keyword=");
+			resp.sendRedirect("/GreatBookList/book-list");
 		}
 	}
 }
