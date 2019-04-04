@@ -50,6 +50,7 @@ public class ClientCheckOutController extends HttpServlet {
 			CartOrder cartOrder=new CartOrder(userId, cartItemMap, dayBuy, "processing");
 			CartOrderService cartOrderService=new CartOrderServiceImpl();
 			int cartOrderId=cartOrderService.add(cartOrder);
+			System.out.println("cart order id: "+cartOrderId);
 			
 			//update book quantity in db & update cartItem
 			Set<Integer> keys=cartItemMap.keySet();

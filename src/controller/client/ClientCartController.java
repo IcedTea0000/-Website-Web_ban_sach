@@ -42,10 +42,12 @@ public class ClientCartController extends HttpServlet {
 			session.setAttribute("cartItemMap", cartItemMap);
 		}
 		else
+			//create temp cart
 		{
 			cartItemMap=(HashMap)session.getAttribute("cartItemMap");
 		}
 		
+		//calculate total price of items in cart
 		Set<Integer> keyList = cartItemMap.keySet();
 		for (Integer key : keyList) {
 			bookPrice = cartItemMap.get(key).getBook().getPrice();

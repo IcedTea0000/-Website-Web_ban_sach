@@ -31,12 +31,12 @@ public class CartOrderDaoImpl extends JDBCConnection implements CartOrderDao {
 			statement.setString(2, cartOrder.getDayBuy());
 			statement.setString(3, cartOrder.getStatus());
 			
-			statement.execute();
+			statement.executeUpdate();
 			ResultSet rs=statement.getGeneratedKeys();
 			
 			int cartOrderId=0;
 			if (rs.next()) {
-				cartOrderId=rs.getInt("id");
+				cartOrderId=rs.getInt(1);
 			}
 			return cartOrderId;
 			
