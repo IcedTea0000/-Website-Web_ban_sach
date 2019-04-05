@@ -24,6 +24,11 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 
+	<!-- Menu -->
+	<jsp:include page="menu.jsp"></jsp:include>
+<br/>
+<br/>
+
 	<div class="checkout">
 		<div class="container">
 			<div class="row">
@@ -33,7 +38,7 @@
 						<div class="section_title">Register</div>
 						<div class="section_subtitle">Enter your account info</div>
 						<div class="checkout_form_container">
-							<form action="" method="post" class="checkout_form">
+							<form action="" method="post" class="checkout_form" enctype="multipart/form-data">
 								<div class="row">
 									<div class="col-xl-6">
 										<!-- Name -->
@@ -66,9 +71,13 @@
 										<textarea class="contact_input contact_textarea"  
 											name="info" placeholder="Tell us something about you">${param.info}</textarea>
 									</div>
-									<div class="button order_button" align="center">
-										<a>CREATE ACCOUNT</a>
-										<button type="submit" />
+									<div class="col-xl-6">
+									<label for="picture">PICTURE</label>
+									<input class="checkout_input" type="file" name="picture_name" required="required"/>
+									</div>
+
+									<div align="center">
+										<button type="submit">CREATE ACCOUNT</button>
 									</div>
 								</div>
 							</form>

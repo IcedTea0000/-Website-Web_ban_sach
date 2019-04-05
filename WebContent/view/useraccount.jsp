@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Contact</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>User Account</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Sublime project">
@@ -24,7 +25,7 @@
 	<jsp:include page="menu.jsp"></jsp:include>
 <br/>
 <br/>
-	<!-- Contact -->
+		<!-- User info -->
 
 	<div class="contact">
 		<div class="container">
@@ -33,79 +34,20 @@
 				<!-- Get in touch -->
 				<div class="col-lg-8 contact_col">
 					<div class="get_in_touch">
-						<div class="section_title">Get in Touch</div>
-						<div class="section_subtitle">Say hello</div>
-						<div class="contact_form_container">
-							<form action="#" id="contact_form" class="contact_form">
+						<div class="section_title">${sessionScope.userAccount.username} 's Account</div>
+						<div class="section_subtitle"></div>
 								<div class="row">
-									<div class="col-xl-6">
-										<!-- Name -->
-										<label for="contact_name">First Name*</label> <input
-											type="text" id="contact_name" class="contact_input"
-											required="required">
-									</div>
 									<div class="col-xl-6 last_name_col">
 										<!-- Last Name -->
-										<label for="contact_last_name">Last Name*</label> <input
-											type="text" id="contact_last_name" class="contact_input"
-											required="required">
-									</div>
+										<a href="${pageContext.request.contextPath}/user-update?id=${sessionScope.userAccount.id}">Update your info</a>
 								</div>
-								<div>
-									<!-- Subject -->
-									<label for="contact_company">Subject</label> <input type="text"
-										id="contact_company" class="contact_input">
+									<div class="col-xl-6 last_name_col">
+										<!-- Last Name -->
+										<label for="contact_last_name">Your order history</label>
 								</div>
-								<div>
-									<label for="contact_textarea">Message*</label>
-									<textarea id="contact_textarea"
-										class="contact_input contact_textarea" required="required"></textarea>
-								</div>
-								<button class="button contact_button">
-									<span>Send Message</span>
-								</button>
-							</form>
-						</div>
 					</div>
 				</div>
-
-				<!-- Contact Info -->
-				<div class="col-lg-3 offset-xl-1 contact_col">
-					<div class="contact_info">
-						<div class="contact_info_section">
-							<div class="contact_info_title">Shipping & Returns</div>
-							<ul>
-								<li>Phone: <span>+84 999 999 999</span></li>
-								<li>Email: <span>ngohoanglam65@gmail.com</span></li>
-							</ul>
-						</div>
-						<div class="contact_info_section">
-							<div class="contact_info_title">Information</div>
-							<ul>
-								<li>Phone: <span>+84 999 999 999</span></li>
-								<li>Email: <span>ngohoanglam65@gmail.com</span></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row map_row">
-				<div class="col">
-
-					<!-- Google Map -->
-					<div class="map">
-						<div id="google_map" class="google_map">
-							<div class="map_container">
-								<div id="map"></div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
+	
 
 	<jsp:include page="footer.jsp"></jsp:include>
 	<script src="${pageContext.request.contextPath}/view/js/jquery-3.2.1.min.js"></script>
