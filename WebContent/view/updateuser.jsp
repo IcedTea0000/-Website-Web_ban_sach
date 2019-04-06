@@ -50,43 +50,45 @@
 											class="checkout_input" contenteditable="false" name="id"
 											value="${user.id}" autofocus="autofocus" />
 									</div>
-					
-										<div class="col-xl-6">
-											<!-- Name -->
-											<label for="name">NAME*</label> <input type="text"
-												class="checkout_input" required="required" name="name"
-												value="${user.name}" autofocus="autofocus" />
-										</div>
-										<div class="col-xl-6">
-											<!-- Address -->
-											<label for="address">ADDRESS*</label> <input type="text"
-												class="checkout_input" required="required" name="address"
-												value="${user.address}" />
-										</div>
 
-										<div class="col-xl-6">
-											<!-- Username -->
-											<label for="login_username">USERNAME*</label> <input
-												type="text" class="checkout_input" required="required"
-												name="username" value="${user.username}" />
-										</div>
-										<div class="col-xl-6">
-											<!-- Password -->
-											<label for="login_password">PASSWORD*</label> <input
-												type="password" name="password" value="${user.password}"
-												class="checkout_input" required="required">
-										</div>
-										<div class="col-xl-6">
-											<!-- About You -->
-											<label for="info">ABOUT YOU</label>
-											<textarea class="contact_input contact_textarea" name="info"
-												placeholder="Tell us something about you">${user.info}</textarea>
-										</div>
-			
+									<div class="col-xl-6">
+										<!-- Name -->
+										<label for="name">NAME*</label> <input type="text"
+											class="checkout_input" required="required" name="name"
+											value="${user.name}" autofocus="autofocus" />
+									</div>
+									<div class="col-xl-6">
+										<!-- Address -->
+										<label for="address">ADDRESS*</label> <input type="text"
+											class="checkout_input" required="required" name="address"
+											value="${user.address}" />
+									</div>
+
+									<div class="col-xl-6">
+										<!-- Username -->
+										<label for="login_username">USERNAME*</label> <input
+											type="text" class="checkout_input" required="required"
+											name="username" value="${user.username}" />
+									</div>
+									<div class="col-xl-6">
+										<!-- Password -->
+										<label for="login_password">PASSWORD*</label> <input
+											type="password" name="password" value="${user.password}"
+											class="checkout_input" required="required">
+									</div>
+									<div class="col-xl-6">
+										<!-- About You -->
+										<label for="info">ABOUT YOU</label>
+										<textarea class="contact_input contact_textarea" name="info"
+											placeholder="Tell us something about you">${user.info}</textarea>
+									</div>
+									<div class="col-xl-6">
+										CURRENT PICTURE <img alt=""
+											src="${pageContext.request.contextPath}/download?folder=user&filename=${user.picture_name}" />
+									</div>
 									<div class="col-xl-6">
 										<label for="picture">PICTURE</label> <input
-											class="checkout_input" type="file" name="picture_name"
-									/>
+											class="checkout_input" type="file" name="picture_name" />
 									</div>
 
 									<div align="center">

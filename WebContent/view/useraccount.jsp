@@ -43,7 +43,7 @@
 								</div>
 									<div class="col-xl-6 last_name_col">
 										<!-- Last Name -->
-										<label for="contact_last_name">Your order history</label>
+										<a href="${pageContext.request.contextPath}/order-history?userId=${sessionScope.userAccount.id}">Your order history</a>
 								</div>
 					</div>
 				</div>
