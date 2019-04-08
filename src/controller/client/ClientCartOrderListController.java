@@ -43,7 +43,7 @@ public class ClientCartOrderListController extends HttpServlet {
 		req.setAttribute("allCartItemMap", allCartItemMap);
 		
 		
-		RequestDispatcher dispatcher=req.getRequestDispatcher("/view/UserOrderHistoryTest.jsp");
+		RequestDispatcher dispatcher=req.getRequestDispatcher("/view/UserOrderHistory.jsp");
 		dispatcher.forward(req, resp);
 	}
 }
