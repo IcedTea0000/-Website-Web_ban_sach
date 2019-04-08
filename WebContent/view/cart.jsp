@@ -10,10 +10,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/view/styles/bootstrap4/bootstrap.min.css">
-<link href="${pageContext.request.contextPath}/view/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
+<link
+	href="${pageContext.request.contextPath}/view/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/view/styles/cart.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/view/styles/cart_responsive.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/view/styles/cart.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/view/styles/cart_responsive.css">
 </head>
 <body>
 
@@ -25,9 +28,7 @@
 
 		<jsp:include page="menu.jsp"></jsp:include>
 
-		<br/>
-		<br/>
-		<br/>
+		<br /> <br /> <br />
 
 		<!-- Cart Info -->
 
@@ -41,14 +42,17 @@
 							<div class="cart_info_col cart_info_col_price">Price</div>
 							<div class="cart_info_col cart_info_col_quantity">Quantity</div>
 							<div class="cart_info_col cart_info_col_total">Total</div>
+
 						</div>
 					</div>
 				</div>
 
-					<!-- Cart Item -->
-						<c:forEach var="item" items="${cartItemMap}">
-											<div class="row cart_items_row">
-					<div class="col">
+				<!-- Cart Item -->
+				
+				<c:forEach var="item" items="${cartItemMap}">
+				<form action="${pageContext.request.contextPath}/cart/update-quantity" method="post">
+					<div class="row cart_items_row">
+						<div class="col">
 							<div
 								class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
 								<!-- Name -->
@@ -56,14 +60,25 @@
 									class="cart_item_product d-flex flex-row align-items-center justify-content-start">
 									<div class="cart_item_image">
 										<div>
-											<img width="100" src="${pageContext.request.contextPath}/view/images/book/${item.value.book.picture_name}" alt="">
+											<img width="100"
+												src="${pageContext.request.contextPath}/view/images/book/${item.value.book.picture_name}"
+												alt="">
 										</div>
 									</div>
 									<div class="cart_item_name_container">
 										<div class="cart_item_name">
-											<a href="${pageContext.request.contextPath}/book-info?id=${item.value.book.id}">${item.value.book.title} - ${item.value.book.author}</a>
+											<a
+												href="${pageContext.request.contextPath}/book-info?id=${item.value.book.id}">${item.value.book.title}
+												- ${item.value.book.author}</a>
 										</div>
-		
+										<div>
+											<a
+												href="${pageContext.request.contextPath}/cart/delete?cart-item-id=${item.value.id}">Delete
+												Item</a>
+											<span> - </span>	
+											<a>Update Quantity</a>
+										</div>
+
 									</div>
 								</div>
 								<!-- Price -->
@@ -72,7 +87,7 @@
 								<div class="cart_item_quantity">
 									<div class="product_quantity_container">
 										<div class="product_quantity clearfix">
-											<span>Qty</span> <input id="quantity_input" type="text"
+											<span>Qty</span> <input id="quantity_input" name="quantity_input" type="text"
 												pattern="[0-9]*" value="${item.value.quantityInCart}">
 											<div class="quantity_buttons">
 												<div id="quantity_inc_button"
@@ -89,9 +104,13 @@
 								</div>
 								<!-- Total -->
 								<div class="cart_item_total">${item.value.book.price*item.value.quantityInCart}</div>
+
+
+
 							</div>
+						</div>
 					</div>
-				</div>
+					</form>
 				</c:forEach>
 
 				<div class="row row_cart_buttons">
@@ -99,7 +118,9 @@
 						<div
 							class="cart_buttons d-flex flex-lg-row flex-column align-items-start justify-content-start">
 							<div class="button continue_shopping_button">
-								<a href="${pageContext.request.contextPath}/book-list?categoryName=all&keyword=">Continue shopping</a>
+								<a
+									href="${pageContext.request.contextPath}/book-list?categoryName=all&keyword=">Continue
+									shopping</a>
 							</div>
 							<div class="cart_buttons_right ml-lg-auto">
 								<div class="button clear_cart_button">
@@ -119,9 +140,10 @@
 						<div class="delivery">
 							<div class="section_title">Shipping method</div>
 							<div class="delivery_options">
-								<label class="delivery_option clearfix">Standard delivery <input type="radio" name="radio" checked="checked"> <span
-									class="checkmark"></span> <span class="delivery_price">Free</span>
-								</label> 
+								<label class="delivery_option clearfix">Standard
+									delivery <input type="radio" name="radio" checked="checked">
+									<span class="checkmark"></span> <span class="delivery_price">Free</span>
+								</label>
 							</div>
 						</div>
 
@@ -164,7 +186,8 @@
 								</ul>
 							</div>
 							<div class="button checkout_button">
-								<a href="${pageContext.request.contextPath}/cart/checkout">Proceed to checkout</a>
+								<a href="${pageContext.request.contextPath}/cart/checkout">Proceed
+									to checkout</a>
 							</div>
 						</div>
 					</div>
@@ -174,16 +197,26 @@
 
 
 		<jsp:include page="footer.jsp"></jsp:include>
-		<script src="${pageContext.request.contextPath}/view/js/jquery-3.2.1.min.js"></script>
-		<script src="${pageContext.request.contextPath}/view/styles/bootstrap4/popper.js"></script>
-		<script src="${pageContext.request.contextPath}/view/styles/bootstrap4/bootstrap.min.js"></script>
-		<script src="${pageContext.request.contextPath}/view/plugins/greensock/TweenMax.min.js"></script>
-		<script src="${pageContext.request.contextPath}/view/plugins/greensock/TimelineMax.min.js"></script>
-		<script src="${pageContext.request.contextPath}/view/plugins/scrollmagic/ScrollMagic.min.js"></script>
-		<script src="${pageContext.request.contextPath}/view/plugins/greensock/animation.gsap.min.js"></script>
-		<script src="${pageContext.request.contextPath}/view/plugins/greensock/ScrollToPlugin.min.js"></script>
-		<script src="${pageContext.request.contextPath}/view/plugins/easing/easing.js"></script>
-		<script src="${pageContext.request.contextPath}/view/plugins/parallax-js-master/parallax.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/view/js/jquery-3.2.1.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/view/styles/bootstrap4/popper.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/view/styles/bootstrap4/bootstrap.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/view/plugins/greensock/TweenMax.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/view/plugins/greensock/TimelineMax.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/view/plugins/scrollmagic/ScrollMagic.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/view/plugins/greensock/animation.gsap.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/view/plugins/greensock/ScrollToPlugin.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/view/plugins/easing/easing.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/view/plugins/parallax-js-master/parallax.min.js"></script>
 		<script src="${pageContext.request.contextPath}/view/js/cart.js"></script>
 </body>
 </html>

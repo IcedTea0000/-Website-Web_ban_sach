@@ -48,7 +48,9 @@
 											</g>
 										</svg>
 										<div>
-											Cart <span>(<c:out value="${sessionScope.cartItemSize}" default="0" />)</span>
+											Cart <span>(<c:out
+													value="${sessionScope.cartItemSize}" default="0" />)
+											</span>
 										</div>
 									</a>
 								</div>
@@ -79,16 +81,22 @@
 								</div>
 
 								<div>
-									<span>Hello <c:out value="${sessionScope.userAccount.username}" default="guest" /></span> 
+									<span>Hello <c:out
+											value="${sessionScope.userAccount.username}" default="guest" /></span>
 									<c:choose>
-									<c:when test="${userAccount == null}">
-									<a href="${pageContext.request.contextPath}/login"> Login</a>
-		
-									</c:when>
-									<c:otherwise>
-									<a href="${pageContext.request.contextPath}/logout"> Logout</a>
-		
-									</c:otherwise>
+
+										<c:when test="${userAccount == null}">
+
+											<a href="${pageContext.request.contextPath}/login"> Login</a>
+
+										</c:when>
+										<c:otherwise>
+											<a href="${pageContext.request.contextPath}/user-account">Account</a>
+											<span> - </span>
+											<a href="${pageContext.request.contextPath}/logout">
+												Logout</a>
+
+										</c:otherwise>
 									</c:choose>
 								</div>
 
