@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <title>Great Book List</title>
 <meta charset="utf-8">
@@ -31,79 +31,41 @@
 			<!-- Home Slider -->
 			<div class="owl-carousel owl-theme home_slider">
 
-				<!-- Slider Item -->
-				<div class="owl-item home_slider_item">
-
-					<div class="owl-item home_slider_item">
-						<div class="home_slider_background" style="background-image:url(${pageContext.request.contextPath}/view/images/home_slider_1.jpg)"></div>
-						<div class="home_slider_content_container">
-							<div class="container">
-								<div class="row">
-									<div class="col">
-										<div class="home_slider_content" data-animation-in="fadeIn"
-											data-animation-out="animate-out fadeOut">
-											<div class="home_slider_title">A new Online Shop
-												experience.</div>
-											<div class="home_slider_subtitle">Get your FAVORITE
-												titles quick and easy.</div>
-											<div class="button button_light home_button">
-												<a href="#">Shop Now</a>
-											</div>
-										</div>
-									</div>
+			<!-- Slider Item -->
+			<div class="owl-item home_slider_item">
+				<div class="home_slider_background" style="background-image:url(${pageContext.request.contextPath}/view/images/ads/home_slider_1.jpg)"></div>
+				<div class="home_slider_content_container">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<div class="home_slider_content"  data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
 								</div>
 							</div>
 						</div>
 					</div>
-
-					<!-- Slider Item -->
-					<div class="owl-item home_slider_item">
-
-						<div class="home_slider_background" style="background-image:url(${pageContext.request.contextPath}/view/images/home_slider_2.jpg)"></div>
-						<div class="home_slider_content_container">
-							<div class="container">
-								<div class="row">
-									<div class="col">
-										<div class="home_slider_content" data-animation-in="fadeIn"
-											data-animation-out="animate-out fadeOut">
-											<div class="home_slider_title">A new Online Shop
-												experience.</div>
-											<div class="home_slider_subtitle">A collection of
-												10,000+ book titles.</div>
-											<div class="button button_light home_button">
-												<a href="#">Shop Now</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Slider Item -->
-					<div class="owl-item home_slider_item">
-						<div class="home_slider_background" style="background-image:url(${pageContext.request.contextPath}/view/images/home_slider_3.jpg)"></div>
-						<div class="home_slider_content_container">
-							<div class="container">
-								<div class="row">
-									<div class="col">
-										<div class="home_slider_content" data-animation-in="fadeIn"
-											data-animation-out="animate-out fadeOut">
-											<div class="home_slider_title">Fast and Secure</div>
-											<div class="home_slider_subtitle">Yes, we will steal
-												your credit cards.</div>
-											<div class="button button_light home_button">
-												<a href="#">Shop Now</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
 				</div>
-
+			</div>
+			
+			<!-- Slider Item -->
+			<div class="owl-item home_slider_item">
+				<div class="home_slider_background" style="background-image:url(${pageContext.request.contextPath}/view/images/ads/home_slider_3.jpg)"></div>
+				<div class="home_slider_content_container">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<div class="home_slider_content"  data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
+									<div class="home_slider_title">A new Online Shop experience.</div>
+									<div class="home_slider_subtitle">Over 10,000+ headings in different genres.</div>
+									<div class="button button_light home_button"><a href="#">Shop Now</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>	
+		
 				<!-- Home Slider Dots -->
 
 				<div class="home_slider_dots_container">
@@ -115,7 +77,6 @@
 										class="home_slider_custom_dots">
 										<li class="home_slider_custom_dot active">01.</li>
 										<li class="home_slider_custom_dot">02.</li>
-										<li class="home_slider_custom_dot">03.</li>
 									</ul>
 								</div>
 							</div>
@@ -133,33 +94,26 @@
 			<div
 				class="avds_container d-flex flex-lg-row flex-column align-items-start justify-content-between">
 				<div class="avds_small">
-					<div class="avds_background"
-						style="background-image: url('${pageContext.request.contextPath}/view/images/ads/ad-small.jpg')"></div>
-					<div class="avds_small_inner">
-						<div class="avds_discount_container">
-							<img
-								src="${pageContext.request.contextPath}/view/images/discount.png"
-								alt="">
-							<div>
-								<div class="avds_discount">
-									<div>
-										20<span></span>
-									</div>
-									<div>Discount</div>
-								</div>
-							</div>
-						</div>
-						<div class="avds_small_content">
-							<div class="avds_title">Best Offers</div>
-							<div class="avds_link">
-								<a href="categories.html">See More</a>
-							</div>
+				<div class="avds_background" style="background-image:url(${pageContext.request.contextPath}/view/images/ads/ad-small.jpg)"></div>
+			<div class="avds_small_inner">
+				<div class="avds_discount_container">
+					<img src="images/discount.png" alt="">
+					<div>
+						<div class="avds_discount">
+							<div>20<span>%</span></div>
+							<div>Discount</div>
 						</div>
 					</div>
 				</div>
+				<div class="avds_small_content">
+					<div class="avds_title">Smart Phones</div>
+					<div class="avds_link"><a href="categories.html">See More</a></div>
+				</div>
+			</div>
+		</div>
 				<div class="avds_large">
 					<div class="avds_background"
-						style="background-image: url('${pageContext.request.contextPath}/view/images/ads/ad-large.jpg')"></div>
+						style="background-image: url(${pageContext.request.contextPath}/view/images/ads/ad-large.jpg)"></div>
 					<div class="avds_large_container">
 						<div class="avds_large_content">
 							<div class="avds_title">Ship anywhere</div>
@@ -202,7 +156,6 @@
 								</div>
 							</c:forEach>
 						</div>
-
 					</div>
 				</div>
 			</div>

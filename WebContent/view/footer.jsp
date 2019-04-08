@@ -5,7 +5,7 @@
 
 <footer class="footer">
 	<div class="footer_background"
-		style="background-image: url(images/footer.jpg)"></div>
+		style="background-image: url(${pageContext.request.contextPath}/view/images/footer.jpg)"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col">
@@ -39,6 +39,5 @@
 		</div>
 	</div>
 </footer>
-
 </div>
 
