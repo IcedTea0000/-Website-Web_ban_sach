@@ -17,6 +17,7 @@ public class LogoutController extends HttpServlet {
 		HttpSession session=req.getSession();
 		session.removeAttribute("userAccount");
 		session.removeAttribute("cartItemMap");
+		session.removeAttribute("cartItemSize");
 		
 		//redirect to book list
 		resp.sendRedirect("/GreatBookList/home");

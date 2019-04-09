@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Book;
 import model.Category;
@@ -36,8 +37,9 @@ public class ClientResultBookController extends HttpServlet {
 			bookList = bookService.searchByNC(keyword, category);
 		}
 
-
+		
 		req.setAttribute("bookList", bookList);
+		req.setAttribute("resultCount", bookList.size());
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/allbooklist.jsp");
 		dispatcher.forward(req, resp);
 	}

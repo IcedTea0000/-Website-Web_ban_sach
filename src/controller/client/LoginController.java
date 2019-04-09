@@ -31,6 +31,7 @@ public class LoginController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 
@@ -42,6 +43,8 @@ public class LoginController extends HttpServlet {
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/view/login.jsp");
 			dispatcher.forward(req, resp);
 		} else {
+			CartItemService cartItemService = new CartItemServiceImpl();
+
 			HttpSession session = req.getSession();
 			session.setAttribute("userAccount", user);
 			session.setMaxInactiveInterval(30 * 60);
@@ -54,7 +57,7 @@ public class LoginController extends HttpServlet {
 				cartItemMap = (HashMap) session.getAttribute("cartItemMap");
 				// update new books to client's cartItem list in db
 				Set<Integer> keyList = cartItemMap.keySet();
-				CartItemService cartItemService = new CartItemServiceImpl();
+				
 
 				for (Integer key : keyList) {
 					CartItem cartItem = cartItemMap.get(key);
@@ -69,14 +72,18 @@ public class LoginController extends HttpServlet {
 					cartItemService.add(cartItem);
 				}
 
-				// generate new cartList session
-				cartItemMap = cartItemService.searchItemInCart(user.getId());
+
 
 			}
+			// generate new cartList session
+			cartItemMap = cartItemService.searchItemInCart(user.getId());
+			
 			// save new cartItemMap session
 			session.setAttribute("cartItemMap", cartItemMap);
+			session.setAttribute("cartItemSize", cartItemMap.size());
 
 			// redirect to book list
+			
 			resp.sendRedirect("/GreatBookList/book-list");
 		}
 	}

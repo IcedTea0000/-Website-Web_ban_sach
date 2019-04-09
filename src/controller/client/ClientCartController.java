@@ -40,6 +40,7 @@ public class ClientCartController extends HttpServlet {
 			CartItemService cartItemService=new CartItemServiceImpl();
 			cartItemMap= cartItemService.searchItemInCart(currentLogin.getId());
 			session.setAttribute("cartItemMap", cartItemMap);
+
 		}
 		else
 			//create temp cart
@@ -47,6 +48,8 @@ public class ClientCartController extends HttpServlet {
 			cartItemMap=(HashMap)session.getAttribute("cartItemMap");
 		}
 		
+		session.setAttribute("cartItemSize", cartItemMap.size());
+
 		//calculate total price of items in cart
 		Set<Integer> keyList = cartItemMap.keySet();
 		for (Integer key : keyList) {
