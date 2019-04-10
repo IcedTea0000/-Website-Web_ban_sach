@@ -15,8 +15,7 @@
 					</div>
 					<div class="icon_box_title">Free Shipping Worldwide</div>
 					<div class="icon_box_text">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Nullam a ultricies metus. Sed nec molestie.</p>
+						<p>Many book options with free international delivery or worldwide shipping.</p>
 					</div>
 				</div>
 			</div>
@@ -31,8 +30,7 @@
 					</div>
 					<div class="icon_box_title">Free Returns</div>
 					<div class="icon_box_text">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Nullam a ultricies metus. Sed nec molestie.</p>
+						<p>GreatBookList offers free returns on some items. Look for 'Free returns' next to the price to confirm that the item qualifies for free returns.</p>
 					</div>
 				</div>
 			</div>
@@ -47,8 +45,7 @@
 					</div>
 					<div class="icon_box_title">24h Fast Support</div>
 					<div class="icon_box_text">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Nullam a ultricies metus. Sed nec molestie.</p>
+						<p>Since your system does not sleep, we also do not sleep. We would be happy to work together with you to create an optimal service package for you.</p>
 					</div>
 				</div>
 			</div>

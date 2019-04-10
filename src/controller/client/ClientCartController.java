@@ -31,23 +31,24 @@ public class ClientCartController extends HttpServlet {
 		double totalPrice = 0;
 		double bookPrice=0;
 		
-		//if user login, get cart from db
+		
 		HttpSession session=req.getSession();
 		Map<Integer, CartItem> cartItemMap;
-		
+		//if user login, get cart from db
 		if (session.getAttribute("userAccount")!=null){
 			User currentLogin=(User)session.getAttribute("userAccount");
 			CartItemService cartItemService=new CartItemServiceImpl();
 			cartItemMap= cartItemService.searchItemInCart(currentLogin.getId());
-			session.setAttribute("cartItemMap", cartItemMap);
-
 		}
 		else
 			//create temp cart
 		{
+			if (session.getAttribute("cartItemMap")==null)
+				cartItemMap=new HashMap<>();
+			else
 			cartItemMap=(HashMap)session.getAttribute("cartItemMap");
 		}
-		
+		session.setAttribute("cartItemMap", cartItemMap);
 		session.setAttribute("cartItemSize", cartItemMap.size());
 
 		//calculate total price of items in cart

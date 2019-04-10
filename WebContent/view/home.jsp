@@ -145,7 +145,7 @@
 											alt="">
 									</div>
 									<div class="product_extra product_new">
-										<a href="categories.html">Tag</a>
+										<a href="#">${book.status}</a>
 									</div>
 									<div class="product_content">
 										<div class="product_title">
