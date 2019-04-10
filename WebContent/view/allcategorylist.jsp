@@ -76,7 +76,7 @@
 							<div class="product">
 								<div class="product_image">
 									<img
-										src="${pageContext.request.contextPath}/view/images/product_1.jpg"
+										src="${pageContext.request.contextPath}/download?folder=category&filename=${category.picture_name}"
 										alt="">
 								</div>
 								<div class="product_extra product_new">
