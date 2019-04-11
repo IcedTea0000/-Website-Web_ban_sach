@@ -31,4 +31,8 @@
 		<load-on-startup>3</load-on-startup>
 
 	</servlet>
+	
+	<error-page>
+	<location>/view/generalErrorPage.jsp</location>
+	</error-page>
 </web-app>
