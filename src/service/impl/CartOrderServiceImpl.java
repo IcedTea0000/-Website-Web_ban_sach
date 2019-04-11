@@ -7,7 +7,7 @@ import dao.impl.CartOrderDaoImpl;
 import model.CartOrder;
 import service.CartOrderService;
 
-public class CartOrderServiceImpl implements CartOrderService {
+public class CartOrderServiceImpl extends ServiceImpl implements CartOrderService {
 	CartOrderDao cartOrderDao = new CartOrderDaoImpl();
 
 	@Override

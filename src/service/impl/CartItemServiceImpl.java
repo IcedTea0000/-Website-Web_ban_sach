@@ -9,7 +9,7 @@ import dao.impl.CartOrderDaoImpl;
 import model.CartItem;
 import service.CartItemService;
 
-public class CartItemServiceImpl implements CartItemService {
+public class CartItemServiceImpl extends ServiceImpl implements CartItemService {
 	CartItemDao cartItemDao=new CartItemDaoImpl();
 	@Override
 	public void add(CartItem cartItem) {

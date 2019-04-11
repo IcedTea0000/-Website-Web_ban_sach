@@ -9,7 +9,7 @@ import model.Category;
 import service.BookService;
 
 //call BookDaoImpl matching methods
-public class BookServiceImpl implements BookService {
+public class BookServiceImpl extends ServiceImpl implements BookService {
 	private BookDao bookDaoImpl=new BookDaoImpl();
 	
 	@Override

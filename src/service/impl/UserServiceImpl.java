@@ -8,7 +8,7 @@ import model.User;
 import service.UserService;
 
 //call matching methods from UserDaoImpl
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl implements UserService {
 	private UserDao userDaoImpl=new UserDaoImpl();
 	
 	@Override

@@ -8,7 +8,7 @@ import model.Category;
 import service.CategoryService;
 
 //call matching methods from CategoryDaoImpl
-public class CategoryServiceImpl implements CategoryService {
+public class CategoryServiceImpl extends ServiceImpl implements CategoryService {
 	private CategoryDao categoryDaoImpl=new CategoryDaoImpl();
 	
 	@Override
