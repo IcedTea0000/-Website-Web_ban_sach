@@ -63,7 +63,6 @@
 					</div>
 				</div>
 			</div>
-			
 		</div>	
 		
 				<!-- Home Slider Dots -->
@@ -107,7 +106,7 @@
 				</div>
 				<div class="avds_small_content">
 					<div class="avds_title">On Sale</div>
-					<div class="avds_link"><a href="categories.html">See More</a></div>
+					<div class="avds_link"><a href="${pageContext.request.contextPath}/offers">See More</a></div>
 				</div>
 			</div>
 		</div>
@@ -142,7 +141,7 @@
 									<div class="product_image">
 										<img
 											src="${pageContext.request.contextPath}/download?folder=book&filename=${book.picture_name}"
-											alt="">
+											alt="" height="393" width="262">
 									</div>
 									<div class="product_extra product_new">
 										<a href="#">${book.status}</a>

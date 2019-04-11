@@ -91,8 +91,12 @@
 											class="checkout_input" type="file" name="picture_name" />
 									</div>
 
-									<div align="center">
-										<button type="submit">UPDATE ACCOUNT</button>
+																		<div align="center">
+								
+										<button type="submit" class="button contact_button">
+											<span>CREATE ACCOUNT</span>
+										</button>
+					
 									</div>
 								</div>
 							</form>

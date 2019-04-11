@@ -77,7 +77,11 @@
 									</div>
 
 									<div align="center">
-										<button type="submit">CREATE ACCOUNT</button>
+								
+										<button type="submit" class="button contact_button">
+											<span>CREATE ACCOUNT</span>
+										</button>
+					
 									</div>
 								</div>
 							</form>

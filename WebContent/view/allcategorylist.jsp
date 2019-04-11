@@ -77,7 +77,7 @@
 								<div class="product_image">
 									<img
 										src="${pageContext.request.contextPath}/download?folder=category&filename=${category.picture_name}"
-										alt="">
+										alt="" height="393" width="262">
 								</div>
 								<div class="product_extra product_new">
 									<a href="categories.html">Tag</a>
@@ -106,56 +106,8 @@
 	</div>
 
 	<!-- Icon Boxes -->
+<jsp:include page="icon.jsp"></jsp:include>
 
-	<div class="icon_boxes">
-		<div class="container">
-			<div class="row icon_box_row">
-
-				<!-- Icon Box -->
-				<div class="col-lg-4 icon_box_col">
-					<div class="icon_box">
-						<div class="icon_box_image">
-							<img src="${pageContext.request.contextPath}/view/images/icon_1.svg" alt="">
-						</div>
-						<div class="icon_box_title">Free Shipping Worldwide</div>
-						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Nullam a ultricies metus. Sed nec molestie.</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Icon Box -->
-				<div class="col-lg-4 icon_box_col">
-					<div class="icon_box">
-						<div class="icon_box_image">
-							<img src="${pageContext.request.contextPath}/view/images/icon_2.svg" alt="">
-						</div>
-						<div class="icon_box_title">Free Returns</div>
-						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Nullam a ultricies metus. Sed nec molestie.</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Icon Box -->
-				<div class="col-lg-4 icon_box_col">
-					<div class="icon_box">
-						<div class="icon_box_image">
-							<img src="${pageContext.request.contextPath}/view/images/icon_3.svg" alt="">
-						</div>
-						<div class="icon_box_title">24h Fast Support</div>
-						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Nullam a ultricies metus. Sed nec molestie.</p>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
 
 	<br />
 

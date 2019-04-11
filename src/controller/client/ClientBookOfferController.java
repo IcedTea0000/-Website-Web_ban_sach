@@ -22,6 +22,7 @@ public class ClientBookOfferController extends HttpServlet {
 		BookService bookService=new BookServiceImpl();
 		List<Book> bookSaleList= bookService.searchByStatus("sale");
 		req.setAttribute("bookList", bookSaleList);
+		req.setAttribute("resultCount", bookSaleList.size());
 		
 		RequestDispatcher dispatcher=req.getRequestDispatcher("view/allbooklist.jsp");
 		dispatcher.forward(req, resp);
