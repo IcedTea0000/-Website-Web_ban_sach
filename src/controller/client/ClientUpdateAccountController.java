@@ -10,6 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -32,7 +34,7 @@ public class ClientUpdateAccountController extends HttpServlet {
 		int userId=Integer.parseInt(req.getParameter("id"));
 		UserService userService=new UserServiceImpl();
 		User user=userService.getById(userId);
-		
+
 		req.setAttribute("user", user);
 		RequestDispatcher dispatcher=req.getRequestDispatcher("/view/updateuser.jsp");
 		dispatcher.forward(req, resp);
@@ -42,6 +44,7 @@ public class ClientUpdateAccountController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload fileUpload = new ServletFileUpload(factory);
+		HttpSession session=req.getSession();
 
 		try {
 			List<FileItem> fileList = fileUpload.parseRequest(req);

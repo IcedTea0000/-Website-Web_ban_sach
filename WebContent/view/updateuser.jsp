@@ -45,10 +45,10 @@
 								enctype="multipart/form-data">
 								<div class="row">
 									<div class="col-xl-6">
-										<!-- Name -->
+										<!-- Id -->
 										<label for="id">ID</label> <input type="text"
 											class="checkout_input" contenteditable="false" name="id"
-											value="${user.id}" autofocus="autofocus" />
+											value="${user.id}" />
 									</div>
 
 									<div class="col-xl-6">
@@ -92,7 +92,7 @@
 									</div>
 
 									<div align="center">
-										<button type="submit">CREATE ACCOUNT</button>
+										<button type="submit">UPDATE ACCOUNT</button>
 									</div>
 								</div>
 							</form>
