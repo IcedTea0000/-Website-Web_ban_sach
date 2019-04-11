@@ -75,8 +75,11 @@
 											<a
 												href="${pageContext.request.contextPath}/cart/delete?cart-item-id=${item.value.id}">Delete
 												Item</a>
-											<span> - </span>	
-											<a>Update Quantity</a>
+											<span> - </span>
+											<form method="get" action="${pageContext.request.contextPath}/cart/update">	
+											<button type="submit">Update Quantity</button>
+											<input hidden="true" name="bookId" value=${item.value.book.id} />
+											
 										</div>
 
 									</div>
@@ -102,6 +105,8 @@
 										</div>
 									</div>
 								</div>
+								</form>
+								
 								<!-- Total -->
 								<div class="cart_item_total">${item.value.book.price*item.value.quantityInCart}</div>
 

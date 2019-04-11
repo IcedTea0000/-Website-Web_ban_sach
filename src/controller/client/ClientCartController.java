@@ -62,4 +62,10 @@ public class ClientCartController extends HttpServlet {
 		RequestDispatcher dispatcher=req.getRequestDispatcher("/view/cart.jsp");
 		dispatcher.forward(req, resp);
 	}
+	
+	//update new book quantity in cart, db & forward back to cart
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+	}
 }
