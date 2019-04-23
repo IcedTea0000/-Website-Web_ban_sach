@@ -18,7 +18,7 @@ public class GetBookInfoController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int bookId=Integer.parseInt(req.getParameter("id"));
-		BookService bookService=new BookServiceImpl();
+		BookService bookService=BookServiceImpl.getInstance();
 		Book book=bookService.getById(bookId);
 		req.setAttribute("book", book);
 		RequestDispatcher dispatcher=req.getRequestDispatcher("/view/admin/book/GetBookInfo.jsp");

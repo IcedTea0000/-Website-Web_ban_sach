@@ -19,7 +19,7 @@ public class GetUserInfoController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int idToGet=Integer.parseInt(req.getParameter("id"));
-		UserService userService=new UserServiceImpl();
+		UserService userService= UserServiceImpl.getInstance();
 		User user=userService.getById(idToGet);
 		req.setAttribute("user", user);
 		

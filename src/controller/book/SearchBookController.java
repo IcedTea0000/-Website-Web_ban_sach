@@ -23,7 +23,7 @@ public class SearchBookController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		CategoryService categoryService = new CategoryServiceImpl();
+		CategoryService categoryService = CategoryServiceImpl.getInstance();
 		List<Category> categoryList = categoryService.searchByName("");
 		
 		req.setAttribute("categoryList", categoryList);
@@ -36,8 +36,8 @@ public class SearchBookController extends HttpServlet {
 		String keyword = req.getParameter("keyword");
 		String categoryName = req.getParameter("categoryName");
 
-		CategoryService categoryService = new CategoryServiceImpl();
-		BookService bookService = new BookServiceImpl();
+		CategoryService categoryService = CategoryServiceImpl.getInstance();
+		BookService bookService = BookServiceImpl.getInstance();
 		List<Book> bookList;
 		if (categoryName.equals("all")) {
 			bookList = bookService.searchByName(keyword);

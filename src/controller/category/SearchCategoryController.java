@@ -26,7 +26,7 @@ public class SearchCategoryController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String keyword=req.getParameter("keyword");
-		CategoryService categoryService=new CategoryServiceImpl();
+		CategoryService categoryService=CategoryServiceImpl.getInstance();
 		List<Category>categoryList=categoryService.searchByName(keyword);		
 		req.setAttribute("categoryList", categoryList);
 		RequestDispatcher dispatcher=req.getRequestDispatcher("/view/admin/category/SearchResultCategory.jsp");

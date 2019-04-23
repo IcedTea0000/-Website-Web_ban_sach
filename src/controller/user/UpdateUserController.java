@@ -19,7 +19,7 @@ public class UpdateUserController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int userId = Integer.parseInt(req.getParameter("userId"));
-		UserService userService = new UserServiceImpl();
+		UserService userService = UserServiceImpl.getInstance();
 		User userToEdit = userService.getById(userId);
 		req.setAttribute("userToEdit", userToEdit);
 
@@ -37,7 +37,7 @@ public class UpdateUserController extends HttpServlet {
 		String role = req.getParameter("role");
 		String info = req.getParameter("info");
 
-		UserService userService = new UserServiceImpl();
+		UserService userService = UserServiceImpl.getInstance();
 		User updatedUser = new User(id, name, address, username, password, role, info);
 		System.out.println(updatedUser.getId());
 		// add updatedUser to SQL db

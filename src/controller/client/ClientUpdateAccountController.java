@@ -32,7 +32,7 @@ public class ClientUpdateAccountController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int userId=Integer.parseInt(req.getParameter("id"));
-		UserService userService=new UserServiceImpl();
+		UserService userService=UserServiceImpl.getInstance();
 		User user=userService.getById(userId);
 
 		req.setAttribute("user", user);
@@ -90,12 +90,12 @@ public class ClientUpdateAccountController extends HttpServlet {
 						
 					} else {
 						int userId=newUser.getId();
-						UserService userService=new UserServiceImpl();
+						UserService userService= UserServiceImpl.getInstance();
 						User oldUser=userService.getById(userId);
 						String oldPictureName=oldUser.getPicture_name();
 						newUser.setPicture_name(oldPictureName);
 					}
-					UserService userService = new UserServiceImpl();
+					UserService userService = UserServiceImpl.getInstance();
 					userService.update(newUser);
 				}
 

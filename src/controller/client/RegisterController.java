@@ -76,7 +76,7 @@ public class RegisterController extends HttpServlet {
 						File pictureFile = new File(PICTURE_FOLDER + pictureName);
 						file.write(pictureFile);
 
-						UserService userService = new UserServiceImpl();
+						UserService userService = UserServiceImpl.getInstance();
 						userService.add(newUser);
 					}
 				}

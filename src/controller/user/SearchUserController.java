@@ -26,7 +26,7 @@ public class SearchUserController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<User> userList;
-		UserService userService=new UserServiceImpl();
+		UserService userService=UserServiceImpl.getInstance();
 		
 		String searchType=req.getParameter("search-type");
 		String keyword=req.getParameter("keyword");

@@ -21,7 +21,7 @@ public class ResultUserController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<User> userList;
-		UserService userService = new UserServiceImpl();
+		UserService userService = UserServiceImpl.getInstance();
 
 		String keyword = req.getParameter("keyword");
 		userList = userService.searchByName(keyword);

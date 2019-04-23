@@ -9,8 +9,18 @@ import dao.impl.CartOrderDaoImpl;
 import model.CartItem;
 import service.CartItemService;
 
-public class CartItemServiceImpl extends ServiceImpl implements CartItemService {
+public class CartItemServiceImpl implements CartItemService {
 	CartItemDao cartItemDao=new CartItemDaoImpl();
+	
+	private CartItemServiceImpl(){
+	}
+	
+	private static CartItemServiceImpl instance=new CartItemServiceImpl();
+	
+	public static CartItemServiceImpl getInstance(){
+		return instance;
+	}
+	
 	@Override
 	public void add(CartItem cartItem) {
 		// TODO Auto-generated method stub

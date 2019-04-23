@@ -26,7 +26,7 @@ public class AddCategoryController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String newCategoryName=req.getParameter("name");
 		String newCategoryDescription=req.getParameter("description");
-		CategoryService categoryService=new CategoryServiceImpl();
+		CategoryService categoryService=CategoryServiceImpl.getInstance();
 		Category newCategory=new Category(newCategoryName, newCategoryDescription);
 		
 		if (categoryService.checkCategoryExisted(newCategoryName)) {

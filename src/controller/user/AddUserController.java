@@ -30,7 +30,7 @@ public class AddUserController extends HttpServlet {
 		String password = req.getParameter("password");
 		String role = req.getParameter("role");
 		String info = req.getParameter("info");
-		UserServiceImpl userService = new UserServiceImpl();
+		UserServiceImpl userService = UserServiceImpl.getInstance();
 
 		if (!userService.checkUserNameExisted(username)) {
 			User newUser = new User(name, address, username, password, role, info);

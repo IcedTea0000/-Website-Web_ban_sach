@@ -18,7 +18,7 @@ public class UpdateCategoryController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int id = Integer.parseInt(req.getParameter("id"));
-		CategoryService categoryService = new CategoryServiceImpl();
+		CategoryService categoryService = CategoryServiceImpl.getInstance();
 		Category category = categoryService.getById(id);
 
 		req.setAttribute("category", category);
@@ -33,7 +33,7 @@ public class UpdateCategoryController extends HttpServlet {
 		String description=req.getParameter("description");
 		Category newCategory=new Category(id,name,description);
 		
-		CategoryService categoryService=new CategoryServiceImpl();
+		CategoryService categoryService= CategoryServiceImpl.getInstance();
 		categoryService.update(newCategory);
 		
 		//redirect to search-all result

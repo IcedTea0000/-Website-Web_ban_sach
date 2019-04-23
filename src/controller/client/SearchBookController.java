@@ -26,8 +26,8 @@ public class SearchBookController extends HttpServlet {
 		String keyword = req.getParameter("keyword");
 		String categoryName ="all";  //req.getParameter("categoryName");
 
-		CategoryService categoryService = new CategoryServiceImpl();
-		BookService bookService = new BookServiceImpl();
+		CategoryService categoryService = CategoryServiceImpl.getInstance();
+		BookService bookService =  BookServiceImpl.getInstance();
 		List<Book> bookList;
 		if (categoryName.equals("all")) {
 			bookList = bookService.searchByName(keyword);
@@ -47,8 +47,8 @@ public class SearchBookController extends HttpServlet {
 		String keyword = req.getParameter("keyword");
 		String categoryName = req.getParameter("categoryName");
 
-		CategoryService categoryService = new CategoryServiceImpl();
-		BookService bookService = new BookServiceImpl();
+		CategoryService categoryService = CategoryServiceImpl.getInstance();
+		BookService bookService = BookServiceImpl.getInstance();
 		List<Book> bookList;
 		if (categoryName.equals("all")) {
 			bookList = bookService.searchByName(keyword);

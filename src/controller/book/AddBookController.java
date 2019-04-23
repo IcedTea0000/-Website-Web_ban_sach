@@ -28,7 +28,7 @@ public class AddBookController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		CategoryService categoryService = new CategoryServiceImpl();
+		CategoryService categoryService = CategoryServiceImpl.getInstance();
 		List<Category> categoryList = categoryService.searchByName("");
 		req.setAttribute("categoryList", categoryList);
 
@@ -68,7 +68,7 @@ public class AddBookController extends HttpServlet {
 					newBook.setStatus(status);
 				} else if (file.getFieldName().equals("categoryName")) {
 					String categoryName = file.getString();
-					CategoryService categoryService = new CategoryServiceImpl();
+					CategoryService categoryService = CategoryServiceImpl.getInstance();
 					Category category = categoryService.getByName(categoryName);
 					newBook.setCategory(category);
 				} else if (file.getFieldName().equals("picture_name")) {
@@ -84,7 +84,7 @@ public class AddBookController extends HttpServlet {
 						File pictureFile = new File(PICTURE_FOLDER + pictureName);
 						file.write(pictureFile);
 						
-						BookService bookService = new BookServiceImpl();
+						BookService bookService = BookServiceImpl.getInstance();
 						bookService.add(newBook);
 					}
 				}

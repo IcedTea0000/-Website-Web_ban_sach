@@ -8,8 +8,17 @@ import model.Category;
 import service.CategoryService;
 
 //call matching methods from CategoryDaoImpl
-public class CategoryServiceImpl extends ServiceImpl implements CategoryService {
+public class CategoryServiceImpl implements CategoryService {
 	private CategoryDao categoryDaoImpl=new CategoryDaoImpl();
+	
+	private CategoryServiceImpl(){
+	}
+	
+	private static CategoryServiceImpl instance=new CategoryServiceImpl();
+	
+	public static CategoryServiceImpl getInstance(){
+		return instance;
+	}
 	
 	@Override
 	public void add(Category newCategory) {

@@ -32,9 +32,9 @@ public class AddCartItemController extends HttpServlet {
 		int bookId = Integer.parseInt(req.getParameter("book_id"));
 		CartItem cartItem;
 		int quantityInCart;
-		BookService bookService = new BookServiceImpl();
-		UserService userService = new UserServiceImpl();
-		CartItemService cartItemService = new CartItemServiceImpl();
+		BookService bookService = BookServiceImpl.getInstance();
+		UserService userService = UserServiceImpl.getInstance();
+		CartItemService cartItemService = CartItemServiceImpl.getInstance();
 
 		HttpSession session = req.getSession();
 		Book bookAddToCart = bookService.getById(bookId);

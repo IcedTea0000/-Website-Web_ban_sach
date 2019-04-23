@@ -26,13 +26,13 @@ public class ClientCartOrderListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int userId=Integer.parseInt(req.getParameter("userId"));
-		CartOrderService cartOrderService=new CartOrderServiceImpl();
+		CartOrderService cartOrderService=CartOrderServiceImpl.getInstance();
 		
 		List<CartOrder> cartOrderList=cartOrderService.searchByUserId(userId);
 		req.setAttribute("cartOrderList", cartOrderList);
 		
 		//search cartItemList for each cartOrder, put in a Map
-		CartItemService cartItemService=new CartItemServiceImpl();
+		CartItemService cartItemService=CartItemServiceImpl.getInstance();
 		Map<Integer, CartItem>cartItemMap;
 		Map<Integer, Map<Integer,CartItem>>allCartItemMap=new HashMap<>();
 		

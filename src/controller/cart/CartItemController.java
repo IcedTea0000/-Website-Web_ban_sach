@@ -32,7 +32,7 @@ public class CartItemController extends HttpServlet {
 		Map<Integer, CartItem> cartItemMap;
 		
 		if (currentLogin!=null){
-			CartItemService cartItemService=new CartItemServiceImpl();
+			CartItemService cartItemService=CartItemServiceImpl.getInstance();
 			cartItemMap= cartItemService.searchItemInCart(currentLogin.getId());
 			session.setAttribute("cartItemMap", cartItemMap);
 		}

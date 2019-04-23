@@ -28,11 +28,11 @@ public class UpdateBookController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int bookId = Integer.parseInt(req.getParameter("id"));
-		BookService bookService = new BookServiceImpl();
+		BookService bookService = BookServiceImpl.getInstance();
 		Book oldBook = bookService.getById(bookId);
 		req.setAttribute("oldBook", oldBook);
 
-		CategoryService categoryService = new CategoryServiceImpl();
+		CategoryService categoryService = CategoryServiceImpl.getInstance();
 		List<Category> categoryList = categoryService.searchByName("");
 		req.setAttribute("categoryList", categoryList);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/book/UpdateBook.jsp");
@@ -66,7 +66,7 @@ public class UpdateBookController extends HttpServlet {
 					newBook.setPrice(price);
 				} else if (file.getFieldName().equals("categoryId")) {
 					int categoryId = Integer.parseInt(file.getString());
-					CategoryService categoryService = new CategoryServiceImpl();
+					CategoryService categoryService = CategoryServiceImpl.getInstance();
 					Category category = categoryService.getById(categoryId);
 					newBook.setCategory(category);
 				} else if (file.getFieldName().equals("stock")) {
@@ -92,12 +92,12 @@ public class UpdateBookController extends HttpServlet {
 						
 					} else {
 						int bookId=newBook.getId();
-						BookService bookService=new BookServiceImpl();
+						BookService bookService=BookServiceImpl.getInstance();
 						Book oldBook=bookService.getById(bookId);
 						String oldPictureName=oldBook.getPicture_name();
 						newBook.setPicture_name(oldPictureName);
 					}
-					BookService bookService = new BookServiceImpl();
+					BookService bookService = BookServiceImpl.getInstance();
 					bookService.update(newBook);
 				}
 

@@ -19,7 +19,7 @@ public class ClientHomeController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		BookService bookService=new BookServiceImpl();
+		BookService bookService=BookServiceImpl.getInstance();
 		List<Book> bookListFeatured=bookService.searchByStatus("top");
 		req.setAttribute("bookListFeatured", bookListFeatured);
 		

@@ -27,7 +27,7 @@ public class ClientCartUpdateController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int newQuantity=Integer.parseInt(req.getParameter("quantity_input"));
 		int bookId=Integer.parseInt(req.getParameter("bookId"));
-		CartItemService cartItemService=new CartItemServiceImpl();
+		CartItemService cartItemService=CartItemServiceImpl.getInstance();
 		HttpSession session=req.getSession();
 		
 		//update cart Item quantity in session

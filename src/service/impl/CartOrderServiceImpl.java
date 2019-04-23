@@ -7,9 +7,18 @@ import dao.impl.CartOrderDaoImpl;
 import model.CartOrder;
 import service.CartOrderService;
 
-public class CartOrderServiceImpl extends ServiceImpl implements CartOrderService {
+public class CartOrderServiceImpl implements CartOrderService {
 	CartOrderDao cartOrderDao = new CartOrderDaoImpl();
 
+	private CartOrderServiceImpl(){
+	}
+	
+	private static CartOrderServiceImpl instance=new CartOrderServiceImpl();
+	
+	public static CartOrderServiceImpl getInstance(){
+		return instance;
+	}
+	
 	@Override
 	public int add(CartOrder cartOrder) {
 		// TODO Auto-generated method stub

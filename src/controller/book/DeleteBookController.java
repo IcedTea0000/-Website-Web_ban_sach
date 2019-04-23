@@ -17,7 +17,7 @@ public class DeleteBookController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int bookId=Integer.parseInt(req.getParameter("id"));
-		BookService bookService=new BookServiceImpl();
+		BookService bookService=BookServiceImpl.getInstance();
 		
 		bookService.delete(bookId);
 		//redirect to search-all result

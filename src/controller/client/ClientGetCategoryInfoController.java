@@ -22,9 +22,9 @@ public class ClientGetCategoryInfoController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int id=Integer.parseInt(req.getParameter("id"));
-		CategoryService categoryService=new CategoryServiceImpl();
+		CategoryService categoryService=CategoryServiceImpl.getInstance();
 		Category category=categoryService.getById(id);
-		BookService bookService=new BookServiceImpl();
+		BookService bookService=BookServiceImpl.getInstance();
 		List<Book> bookList=bookService.searchByNC("", category); 
 
 		req.setAttribute("category", category);

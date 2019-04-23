@@ -116,7 +116,7 @@
 								<div class="product_image">
 									<img
 										src="${pageContext.request.contextPath}/view/images/book/${book.picture_name}"
-										alt="">
+										alt="" height="294.75" width="196.5">
 								</div>
 								<div class="product_extra product_new">
 									<a href="">Tag</a>

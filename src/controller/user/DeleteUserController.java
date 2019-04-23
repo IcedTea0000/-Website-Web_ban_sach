@@ -16,7 +16,7 @@ public class DeleteUserController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int deleteId=Integer.parseInt(req.getParameter("deleteId"));
-		UserService userService=new UserServiceImpl();
+		UserService userService=UserServiceImpl.getInstance();
 		userService.delete(deleteId);
 		
 		//forward to search-all result

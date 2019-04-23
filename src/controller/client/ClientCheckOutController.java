@@ -48,7 +48,7 @@ public class ClientCheckOutController extends HttpServlet {
 			int userId=userAccount.getId();
 			
 			CartOrder cartOrder=new CartOrder(userId, cartItemMap, dayBuy, "processing");
-			CartOrderService cartOrderService=new CartOrderServiceImpl();
+			CartOrderService cartOrderService=CartOrderServiceImpl.getInstance();
 			int cartOrderId=cartOrderService.add(cartOrder);
 			System.out.println("cart order id: "+cartOrderId);
 			
@@ -58,13 +58,13 @@ public class ClientCheckOutController extends HttpServlet {
 				CartItem cartItem=cartItemMap.get(key);
 				
 				cartItem.setCartOrderId(cartOrderId);
-				CartItemService cartItemService=new CartItemServiceImpl();
+				CartItemService cartItemService=CartItemServiceImpl.getInstance();
 				cartItemService.update(cartItem);
 				
 				Book bookInDb=cartItem.getBook();
 				int currentStock=bookInDb.getStock();
 				bookInDb.setStock(currentStock-cartItem.getQuantityInCart());
-				BookService bookService=new BookServiceImpl();
+				BookService bookService=BookServiceImpl.getInstance();
 				bookService.update(bookInDb);
 				
 			}

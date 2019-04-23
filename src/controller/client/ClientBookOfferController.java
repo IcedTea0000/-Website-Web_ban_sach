@@ -19,7 +19,7 @@ public class ClientBookOfferController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		BookService bookService=new BookServiceImpl();
+		BookService bookService=BookServiceImpl.getInstance();
 		List<Book> bookSaleList= bookService.searchByStatus("sale");
 		req.setAttribute("bookList", bookSaleList);
 		req.setAttribute("resultCount", bookSaleList.size());

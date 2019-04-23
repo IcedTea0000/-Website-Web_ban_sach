@@ -37,7 +37,7 @@ public class ClientCartController extends HttpServlet {
 		//if user login, get cart from db
 		if (session.getAttribute("userAccount")!=null){
 			User currentLogin=(User)session.getAttribute("userAccount");
-			CartItemService cartItemService=new CartItemServiceImpl();
+			CartItemService cartItemService=CartItemServiceImpl.getInstance();
 			cartItemMap= cartItemService.searchItemInCart(currentLogin.getId());
 		}
 		else

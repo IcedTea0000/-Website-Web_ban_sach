@@ -35,7 +35,7 @@ public class LoginController extends HttpServlet {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 
-		UserService userService = new UserServiceImpl();
+		UserService userService = UserServiceImpl.getInstance();
 		User user = userService.getByUP(username, password);
 
 		if (user == null) {
@@ -43,7 +43,7 @@ public class LoginController extends HttpServlet {
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/view/login.jsp");
 			dispatcher.forward(req, resp);
 		} else {
-			CartItemService cartItemService = new CartItemServiceImpl();
+			CartItemService cartItemService = CartItemServiceImpl.getInstance();
 
 			HttpSession session = req.getSession();
 			session.setAttribute("userAccount", user);
